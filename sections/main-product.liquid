@@ -109,18 +109,21 @@
               </div>
               {%- when 'price' -%}
 
-              {% unless customer %}
-                <p class="b2b-signup-link">Sign Up For Wholesale Price</p>
-              {% endunless %}
 
-              {% if customer %}
-                <div
-                  class="
-                  price-block left-pdp-space
-                  {% if product.has_only_default_variant %}
-                    border-bottom-off
-                {% else %}
-                  {% endif %}">
+
+              <div
+                class="
+                price-block left-pdp-space
+                {% if product.has_only_default_variant %}
+                  border-bottom-off
+              {% else %}
+                {% endif %}">
+
+                {% unless customer %}
+                  <p class="b2b-signup-link">Sign Up For Wholesale Price</p>
+                {% endunless %}
+
+                {% if customer %}
                   <div
                     class="no-js-hidden"
                     id="price-{{ section.id }}"
@@ -156,8 +159,9 @@
                     {%- endform -%}
                   </div>
                   <span class="small-textblock-price">Inclusive of all taxes</span>
-                </div>
-              {% endif %}
+                {% endif %}
+              </div>
+
               {%- when 'inventory' -%}
               <p
                 class="product__inventory no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -188,7 +192,7 @@
                       </svg>
                       {%- if block.settings.show_inventory_quantity -%}
                         {{-
-                          'products.product.inventory_low_stock_show_count'
+                            'products.product.inventory_low_stock_show_count'
                           | t: quantity: product.selected_or_first_available_variant.inventory_quantity -}}
                       {%- else -%}
                         {{- 'products.product.inventory_low_stock' | t -}}
@@ -213,7 +217,7 @@
                       </svg>
                       {%- if block.settings.show_inventory_quantity -%}
                         {{-
-                          'products.product.inventory_in_stock_show_count'
+                            'products.product.inventory_in_stock_show_count'
                           | t: quantity: product.selected_or_first_available_variant.inventory_quantity -}}
                       {%- else -%}
                         {{- 'products.product.inventory_in_stock' | t -}}
@@ -285,10 +289,10 @@
               <div class="securechecckout" style="margin-top:20px;text-align: center; {% if block.settings.show_securePayment %}display:none;{% endif %}">
                 <p style="margin-bottom:10px;">100% secure payments powered by:</p>
                 <ul class="payment-methods" style="
-                                          list-style:none;display:flex;    justify-content: center;
-                                          padding: 0;
-                                          flex-wrap: wrap;
-                                        ">
+                                                              list-style:none;display:flex;    justify-content: center;
+                                                              padding: 0;
+                                                              flex-wrap: wrap;
+                                                            ">
                   <li>
                     <img
                       data-src="https://cdn.shopify.com/s/files/1/0588/3723/7875/files/Visa_Classic_x32_0964513f-4d51-47b2-a150-b80e8ec61b4f.png"
@@ -487,7 +491,7 @@
                                   {%- assign price_break_price = price_break.price | money_with_currency -%}
                                   <span class="price-per-item--current">
                                     {{-
-                                      'products.product.volume_pricing.price_at_each'
+                                        'products.product.volume_pricing.price_at_each'
                                       | t: price: price_break_price -}}
                                   </span>
                                   {%- break -%}
@@ -533,21 +537,21 @@
                     {%- if product.selected_or_first_available_variant.quantity_rule.increment > 1 -%}
                       <span class="divider">
                         {{-
-                          'products.product.quantity.multiples_of'
+                            'products.product.quantity.multiples_of'
                           | t: quantity: product.selected_or_first_available_variant.quantity_rule.increment -}}
                       </span>
                     {%- endif -%}
                     {%- if product.selected_or_first_available_variant.quantity_rule.min > 1 -%}
                       <span class="divider">
                         {{-
-                          'products.product.quantity.minimum_of'
+                            'products.product.quantity.minimum_of'
                           | t: quantity: product.selected_or_first_available_variant.quantity_rule.min -}}
                       </span>
                     {%- endif -%}
                     {%- if product.selected_or_first_available_variant.quantity_rule.max != null -%}
                       <span class="divider">
                         {{-
-                          'products.product.quantity.maximum_of'
+                            'products.product.quantity.maximum_of'
                           | t: quantity: product.selected_or_first_available_variant.quantity_rule.max -}}
                       </span>
                     {%- endif -%}
@@ -907,13 +911,14 @@
         if (! isIE()) 
           return;
         
-        const hiddenInput = document.querySelector('# {{ product_form_id }} input[name="id"]');
+
+        const hiddenInput = document.querySelector('#  {{ product_form_id }} input[name="id"]');
         const noScriptInputWrapper = document.createElement('div');
-        const variantSwitcher = document.querySelector('variant-radios[data-section=" {{ section.id }} "]') || document.querySelector('variant-selects[data-section=" {{ section.id }} "]');
-        noScriptInputWrapper.innerHTML = document.querySelector('.product-form__noscript-wrapper- {{ section.id }}').textContent;
+        const variantSwitcher = document.querySelector('variant-radios[data-section="  {{ section.id }} "]') || document.querySelector('variant-selects[data-section="  {{ section.id }} "]');
+        noScriptInputWrapper.innerHTML = document.querySelector('.product-form__noscript-wrapper-  {{ section.id }}').textContent;
         variantSwitcher.outerHTML = noScriptInputWrapper.outerHTML;
 
-        document.querySelector('#Variants- {{ section.id }}').addEventListener('change', function(event) {
+        document.querySelector('#Variants-  {{ section.id }}').addEventListener('change', function(event) {
           hiddenInput.value = event.currentTarget.value;
         });
       });
@@ -930,8 +935,8 @@
     <script type="application/ld+json">
       {
       "@context": "http://schema.org/",
-              "@type": "Product",
-              "name": {{ product.title | json }},
+                    "@type": "Product",
+                    "name": {{ product.title | json }},
       "url": {{ request.origin | append: product.url | json }},
       {% if seo_media -%}
         "image": [
@@ -944,7 +949,7 @@
       {%- endif %}
       "brand": {
       "@type": "Brand",
-                "name": {{ product.vendor | json }}
+                      "name": {{ product.vendor | json }}
       },
       "offers": [
       {%- for variant in product.variants -%}
@@ -978,7 +983,8 @@
   {{ section.settings.pdfont | font_face}}
   @media only screen and (max-width: 768px) {
     .product__description > p {
-      font-family: {{ section.settings.pdfont.family}};
+      font-family: {{ section.settings.pdfont.family}}
+      ;
     }
   }
 </style>
