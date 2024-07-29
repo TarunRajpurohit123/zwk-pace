@@ -304,15 +304,15 @@
 </style>
 {% if request.path == "/pages/bussiness" %}
 <script>
-  window.addEventListener('load',()=>{
-    localStorage.setItem("currentType","B");
+  window.addEventListener('DOMContentLoaded',()=>{
+    localStorage.setItem("currentType","BB");
   })
 </script>
 {%endif%}
 {% if request.path == "/" %}
 <script>
-  window.addEventListener('load',()=>{
-    localStorage.setItem("currentType","C");
+  window.addEventListener('DOMContentLoaded',()=>{
+    localStorage.setItem("currentType","CC");
   })
 </script>
 {%endif%}
