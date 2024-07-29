@@ -166,7 +166,7 @@ Usage:
               {{ card_product.title | escape }}
             </a>
           </h3>
-          {% if customer or request.path != "/pages/bussiness" %}
+          {% unless customer or request.path != "/pages/bussiness" %}
             <div class="card-information">
               {%- if show_vendor -%}
                 <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
@@ -216,14 +216,14 @@ Usage:
                 </div>
               {%- endif -%}
             </div>
-          {% endif customer %}
+          {% endless customer %}
 
-          {% unless customer %}
+          {% if customer %}
             {% if request.path == "/pages/bussiness" %}
               <p>Sign up for wholesaleprice
               </p>
             {% endif %}
-          {% endunless %}
+          {% endif %}
         </div>
         {%- if show_quick_add -%}
           <div class="quick-add no-js-hidden">
