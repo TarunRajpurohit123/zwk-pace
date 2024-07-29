@@ -165,6 +165,9 @@
         "gotolink": "https:\/\/google.com\/"
       }
     },
+    "page_diff_customer": {
+      "type": "Page-Diff-Customer"
+    },
     "category_list_product_slider_BpAwzq": {
       "type": "category-list-product-slider",
       "blocks": {
