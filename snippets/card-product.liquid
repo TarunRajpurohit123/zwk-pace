@@ -168,7 +168,6 @@ Usage:
           </h3>
           {% if customer or request.path != "/pages/bussiness" %}
             <div class="card-information">
-              A
               {%- if show_vendor -%}
                 <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
                 <div class="caption-with-letter-spacing light">{{ card_product.vendor }}</div>
@@ -361,7 +360,6 @@ Usage:
             </a>
           </h3>
           <div class="card-information">
-            B
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
               <div class="caption-with-letter-spacing light">{{ 'products.product.vendor' | t }}</div>
