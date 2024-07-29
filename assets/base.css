@@ -3889,4 +3889,5 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
   color: red !important;
   letter-spacing: normal !important;
   font-size: 13px !important;
+  font-weight: bold;
 }
