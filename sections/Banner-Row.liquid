@@ -1,19 +1,23 @@
 {% comment %} added by tarun {% endcomment %}
 
 <!-- <a href="{{ section.settings.gotolink }}"><section style="background-image: url('{{ section.settings.bannerOf | image_url }}');background-repeat:no-repeat;background-size:cover;height:{{ section.settings.bannerRowHeight }}px;width:100%;margin-top:{{ section.settings.bannerRowMarginTop }}rem;margin-bottom:{{ section.settings.bannerRowMarginBottom }}rem">
-</section></a> -->
+</section></a> --><a href="{{ section.settings.gotolink }}"> <section style="background-repeat:no-repeat;background-size:cover;height:{{ section.settings.bannerRowHeight }}px;width:100%;margin-top:{{ section.settings.bannerRowMarginTop }}rem;margin-bottom:{{ section.settings.bannerRowMarginBottom }}rem">
+    {{ section.settings.bannerOf | image_url: width: '100%' | image_tag: class: "banner_offer_img" }}
+  </section>
+</a>
 
-<a href="{{ section.settings.gotolink }}">
-  <section style="background-repeat:no-repeat;background-size:cover;height:{{ section.settings.bannerRowHeight }}px;width:100%;margin-top:{{ section.settings.bannerRowMarginTop }}rem;margin-bottom:{{ section.settings.bannerRowMarginBottom }}rem">
-   {{ section.settings.bannerOf | image_url: width:'100%' | image_tag: class:"banner_offer_img"}}
-  </section></a>
+<style>
+  .banner_offer_img {
+    height: 305px;
+    width: 100% !important;
+  }
+</style>
 
-  <style>
-    .banner_offer_img{
-      height:305px;
-      width:100% !important;
-    }
-  </style>
+<script>
+  document.addEventListener('load', () => {
+    localStorage.setItem("page", "B")
+  })
+</script>
 
 {% schema %}
   {
@@ -23,41 +27,39 @@
         "type": "text",
         "id": "bannerRowBackground",
         "label": "Background",
-        "default":"grey"
+        "default": "grey"
       },
       {
         "type": "text",
         "id": "bannerRowHeight",
         "label": "height",
-        "default":"305"
+        "default": "305"
       },
       {
         "type": "text",
         "id": "bannerRowMarginTop",
         "label": "Margin Top",
-        "default":"4.5"
+        "default": "4.5"
       },
       {
         "type": "text",
         "id": "bannerRowMarginBottom",
         "label": "Margin Bottom",
-        "default":"0"
-      },
-      {
+        "default": "0"
+      }, {
         "type": "image_picker",
         "id": "bannerOf",
         "label": "Banner Image"
-      },
-      {
+      }, {
         "type": "text",
         "id": "gotolink",
         "label": "Banner Link"
       }
     ],
     "presets": [
-    {
-      "name": "Banner Row"
-    }
-  ]
+      {
+        "name": "Banner Row"
+      }
+    ]
   }
 {% endschema %}
