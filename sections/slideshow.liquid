@@ -302,11 +302,20 @@
     font-weight: 300;
 }
 </style>
+{% if request.path == "/pages/bussiness" %}
 <script>
   window.addEventListener('load',()=>{
     localStorage.setItem("currentType","B");
   })
 </script>
+{%endif%}
+{% if request.path == "/" %}
+<script>
+  window.addEventListener('load',()=>{
+    localStorage.setItem("currentType","C");
+  })
+</script>
+{%endif%}
 {% schema %}
 {
   "name": "t:sections.slideshow.name",
