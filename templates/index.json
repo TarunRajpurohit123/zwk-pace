@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "38f03622-ecae-4ea4-a7af-bf0a15d7c248": {
@@ -6,13 +15,13 @@
         "slide_UQWBpL": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/30.jpg",
-            "image1": "shopify://shop_images/4-mobile.png",
+            "image": "shopify:\/\/shop_images\/30.jpg",
+            "image1": "shopify:\/\/shop_images\/4-mobile.png",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
             "button_label": "",
-            "link": "shopify://collections/new-arrival",
+            "link": "shopify:\/\/collections\/new-arrival",
             "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": true,
@@ -25,13 +34,13 @@
         "slide_k3wRPm": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/zwankee_sale_banner.jpg",
-            "image1": "shopify://shop_images/zwankee_sale_banner_450_x_300_px.jpg",
+            "image": "shopify:\/\/shop_images\/zwankee_sale_banner.jpg",
+            "image1": "shopify:\/\/shop_images\/zwankee_sale_banner_450_x_300_px.jpg",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
             "button_label": "",
-            "link": "shopify://collections/dresses",
+            "link": "shopify:\/\/collections\/dresses",
             "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": true,
@@ -45,13 +54,13 @@
           "type": "slide",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/zwankee_sale_banner-3.png",
-            "image1": "shopify://shop_images/zwankee_sale_banner_450_x_300_px_2b1cda20-b413-486f-997d-a7b1c211ebcd.png",
+            "image": "shopify:\/\/shop_images\/zwankee_sale_banner-3.png",
+            "image1": "shopify:\/\/shop_images\/zwankee_sale_banner_450_x_300_px_2b1cda20-b413-486f-997d-a7b1c211ebcd.png",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
             "button_label": "",
-            "link": "shopify://collections/sale-15",
+            "link": "shopify:\/\/collections\/sale-15",
             "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": true,
@@ -65,13 +74,13 @@
           "type": "slide",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/2_7688e192-ce6c-4227-a24c-7a39564f9c2f.png",
-            "image1": "shopify://shop_images/2_0cd1b130-151f-43aa-9cb3-7b22b649f160.png",
+            "image": "shopify:\/\/shop_images\/2_7688e192-ce6c-4227-a24c-7a39564f9c2f.png",
+            "image1": "shopify:\/\/shop_images\/2_0cd1b130-151f-43aa-9cb3-7b22b649f160.png",
             "heading": "",
             "heading_size": "h0",
             "subheading": "",
             "button_label": "",
-            "link": "shopify://collections/sway",
+            "link": "shopify:\/\/collections\/sway",
             "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": false,
@@ -85,13 +94,13 @@
           "type": "slide",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/3_55c8c7f3-5525-45b5-a4fc-b44c4f735a5f.jpg",
-            "image1": "shopify://shop_images/3_155e6468-dea1-45cb-8d35-44caec9db980.png",
+            "image": "shopify:\/\/shop_images\/3_55c8c7f3-5525-45b5-a4fc-b44c4f735a5f.jpg",
+            "image1": "shopify:\/\/shop_images\/3_155e6468-dea1-45cb-8d35-44caec9db980.png",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
             "button_label": "",
-            "link": "shopify://collections/dresses",
+            "link": "shopify:\/\/collections\/dresses",
             "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": true,
@@ -105,13 +114,13 @@
           "type": "slide",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/4_420fa8aa-9e6f-4329-a3e9-c03eabcb0529.png",
-            "image1": "shopify://shop_images/4_d779c279-0c48-4818-8d69-9e159571b706.png",
+            "image": "shopify:\/\/shop_images\/4_420fa8aa-9e6f-4329-a3e9-c03eabcb0529.png",
+            "image1": "shopify:\/\/shop_images\/4_d779c279-0c48-4818-8d69-9e159571b706.png",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
             "button_label": "",
-            "link": "shopify://collections/zweekend-sale",
+            "link": "shopify:\/\/collections\/zweekend-sale",
             "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": true,
@@ -130,7 +139,9 @@
         "ff7bfa75-1d98-4eb7-9d82-e1b0cac12dcd",
         "slide_rNpr94"
       ],
-      "custom_css": [".slideshow__autoplay {display: none;}"],
+      "custom_css": [
+        ".slideshow__autoplay {display: none;}"
+      ],
       "settings": {
         "layout": "full_bleed",
         "slide_height": "adapt_image",
@@ -144,13 +155,14 @@
     },
     "banner_row_kcRDMd": {
       "type": "Banner-Row",
+      "disabled": true,
       "settings": {
         "bannerRowBackground": "black",
         "bannerRowHeight": "305",
         "bannerRowMarginTop": "4.5",
         "bannerRowMarginBottom": "0",
-        "bannerOf": "shopify://shop_images/green-and-white-marbled-coloring.jpg",
-        "gotolink": "https://google.com/"
+        "bannerOf": "shopify:\/\/shop_images\/green-and-white-marbled-coloring.jpg",
+        "gotolink": "https:\/\/google.com\/"
       }
     },
     "category_list_product_slider_BpAwzq": {
@@ -160,7 +172,7 @@
           "type": "image",
           "settings": {
             "collection": "dresses",
-            "imgblock": "shopify://shop_images/1_9ddb8e54-ef7d-4676-bfa4-d2978e0a5f85.png",
+            "imgblock": "shopify:\/\/shop_images\/1_9ddb8e54-ef7d-4676-bfa4-d2978e0a5f85.png",
             "title": "",
             "coll_link": ""
           }
@@ -169,27 +181,27 @@
           "type": "image",
           "settings": {
             "collection": "tops",
-            "imgblock": "shopify://shop_images/Rectangle_17580_5.jpg",
+            "imgblock": "shopify:\/\/shop_images\/Rectangle_17580_5.jpg",
             "title": "",
-            "coll_link": "shopify://collections/tops"
+            "coll_link": "shopify:\/\/collections\/tops"
           }
         },
         "image_aqE4FN": {
           "type": "image",
           "settings": {
             "collection": "bottoms",
-            "imgblock": "shopify://shop_images/Rectangle_17580_3.jpg",
+            "imgblock": "shopify:\/\/shop_images\/Rectangle_17580_3.jpg",
             "title": "",
-            "coll_link": "shopify://collections/bottoms"
+            "coll_link": "shopify:\/\/collections\/bottoms"
           }
         },
         "image_iDxzN9": {
           "type": "image",
           "settings": {
             "collection": "co-ords",
-            "imgblock": "shopify://shop_images/WhatsApp_Image_2024-07-15_at_15.36.13_140bee98.jpg",
+            "imgblock": "shopify:\/\/shop_images\/WhatsApp_Image_2024-07-15_at_15.36.13_140bee98.jpg",
             "title": "",
-            "coll_link": "shopify://collections/co-ords"
+            "coll_link": "shopify:\/\/collections\/co-ords"
           }
         }
       },
@@ -214,49 +226,49 @@
         "1b44c9f5-0d5f-4d15-8353-68c501ee11e2": {
           "type": "image",
           "settings": {
-            "imgblock": "shopify://shop_images/Rectangle_17516_02b14382-4f07-4049-a39b-c539972ff033.png",
+            "imgblock": "shopify:\/\/shop_images\/Rectangle_17516_02b14382-4f07-4049-a39b-c539972ff033.png",
             "title": "Dresses",
-            "coll_link": "shopify://collections/dresses"
+            "coll_link": "shopify:\/\/collections\/dresses"
           }
         },
         "03e9483a-8b8d-49dd-9603-1d668e50e9cb": {
           "type": "image",
           "settings": {
-            "imgblock": "shopify://shop_images/Rectangle_17517_9478f14e-5833-4bdf-9c3f-25aac64c0ebb.png",
+            "imgblock": "shopify:\/\/shop_images\/Rectangle_17517_9478f14e-5833-4bdf-9c3f-25aac64c0ebb.png",
             "title": "Shirts",
-            "coll_link": "shopify://collections/shirts"
+            "coll_link": "shopify:\/\/collections\/shirts"
           }
         },
         "7c8ee6eb-e887-4a5d-a4dd-11a71b78b257": {
           "type": "image",
           "settings": {
-            "imgblock": "shopify://shop_images/Rectangle_17518_622b6156-c150-41d1-b7a9-d2aff638e09f.png",
+            "imgblock": "shopify:\/\/shop_images\/Rectangle_17518_622b6156-c150-41d1-b7a9-d2aff638e09f.png",
             "title": "Bottoms",
-            "coll_link": "shopify://collections/bottoms"
+            "coll_link": "shopify:\/\/collections\/bottoms"
           }
         },
         "fe0d4917-496d-4cf8-8403-460cab28532a": {
           "type": "image",
           "settings": {
-            "imgblock": "shopify://shop_images/Rectangle_17519_6a39581c-abb2-40f6-a016-a3b7e876566d.png",
+            "imgblock": "shopify:\/\/shop_images\/Rectangle_17519_6a39581c-abb2-40f6-a016-a3b7e876566d.png",
             "title": "Tops",
-            "coll_link": "shopify://collections/tops"
+            "coll_link": "shopify:\/\/collections\/tops"
           }
         },
         "c98e6c00-dc7b-4bea-8a7b-51483f1a765a": {
           "type": "image",
           "settings": {
-            "imgblock": "shopify://shop_images/Rectangle_17521_b040735f-982c-4eeb-ab76-fb46f402be58.png",
+            "imgblock": "shopify:\/\/shop_images\/Rectangle_17521_b040735f-982c-4eeb-ab76-fb46f402be58.png",
             "title": "Jackets",
-            "coll_link": "shopify://collections/jackets"
+            "coll_link": "shopify:\/\/collections\/jackets"
           }
         },
         "f13487db-ee2e-42d3-be93-f5748f002fd4": {
           "type": "image",
           "settings": {
-            "imgblock": "shopify://shop_images/Rectangle_17522.png",
+            "imgblock": "shopify:\/\/shop_images\/Rectangle_17522.png",
             "title": "Co-ords",
-            "coll_link": "shopify://collections/co-ords"
+            "coll_link": "shopify:\/\/collections\/co-ords"
           }
         }
       },
@@ -272,7 +284,7 @@
       "settings": {
         "title": "Shop By Categories",
         "url": "View All",
-        "label": "shopify://collections",
+        "label": "shopify:\/\/collections",
         "padding_top": 20,
         "padding_bottom": 20
       }
@@ -283,38 +295,42 @@
         "column_bVKnk9": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/Essentials.jpg",
+            "image": "shopify:\/\/shop_images\/Essentials.jpg",
             "top_text": "",
             "title": "",
             "text": "",
             "link_label": "",
-            "link": "shopify://collections/flat-999"
+            "link": "shopify:\/\/collections\/flat-999"
           }
         },
         "column_iTGTUX": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/Exclusive.jpg",
+            "image": "shopify:\/\/shop_images\/Exclusive.jpg",
             "top_text": "",
             "title": "",
             "text": "",
             "link_label": "",
-            "link": "shopify://collections/flat-1999"
+            "link": "shopify:\/\/collections\/flat-1999"
           }
         },
         "column_wNGibb": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/Background.jpg",
+            "image": "shopify:\/\/shop_images\/Background.jpg",
             "top_text": "",
             "title": "",
             "text": "",
             "link_label": "",
-            "link": "shopify://collections/flat-2999"
+            "link": "shopify:\/\/collections\/flat-2999"
           }
         }
       },
-      "block_order": ["column_bVKnk9", "column_iTGTUX", "column_wNGibb"],
+      "block_order": [
+        "column_bVKnk9",
+        "column_iTGTUX",
+        "column_wNGibb"
+      ],
       "disabled": true,
       "settings": {
         "title": "",
@@ -339,7 +355,7 @@
         "title": "New Arrivals",
         "sub_title": "",
         "label": "View ALL",
-        "url": "shopify://collections/new-arrival",
+        "url": "shopify:\/\/collections\/new-arrival",
         "collection": "new-arrival",
         "show_view_all": true,
         "view_all_style": "solid",
@@ -360,7 +376,7 @@
           "settings": {
             "top_text": "find",
             "title": "Unique &amp; Modern <br>Products",
-            "text": "<p>A considered line of versatile products designed to work in every room</p>",
+            "text": "<p>A considered line of versatile products designed to work in every room<\/p>",
             "link_label": "",
             "link": ""
           }
@@ -370,7 +386,7 @@
           "settings": {
             "top_text": "buy",
             "title": "Expertly Vetted<br> Quality",
-            "text": "<p>Beautiful, durable materials selected for a lover impact and longer lifespan</p>",
+            "text": "<p>Beautiful, durable materials selected for a lover impact and longer lifespan<\/p>",
             "link_label": "",
             "link": ""
           }
@@ -380,7 +396,7 @@
           "settings": {
             "top_text": "Collect",
             "title": "Delivery At Your<br> door",
-            "text": "<p>Support, guidance, and original content to help you organize with intention</p>",
+            "text": "<p>Support, guidance, and original content to help you organize with intention<\/p>",
             "link_label": "",
             "link": ""
           }
@@ -417,7 +433,7 @@
         "title": "Bestseller",
         "sub_title": "",
         "label": "View ALL",
-        "url": "shopify://collections/bestsellers",
+        "url": "shopify:\/\/collections\/bestsellers",
         "collection": "bestsellers",
         "show_view_all": true,
         "view_all_style": "solid",
@@ -437,41 +453,41 @@
           "type": "image",
           "disabled": true,
           "settings": {
-            "imgblock": "shopify://shop_images/1_768cc7a4-ab81-494a-8b35-b2b95f849540.png",
+            "imgblock": "shopify:\/\/shop_images\/1_768cc7a4-ab81-494a-8b35-b2b95f849540.png",
             "coll_title": "",
-            "coll_link": "shopify://collections/reyon"
+            "coll_link": "shopify:\/\/collections\/reyon"
           }
         },
         "7a0c0c49-8b77-4921-acf9-7e99a2427a77": {
           "type": "image",
           "settings": {
-            "imgblock": "shopify://shop_images/0_6cca6d88-f948-4114-b950-198acbefad74.jpg",
+            "imgblock": "shopify:\/\/shop_images\/0_6cca6d88-f948-4114-b950-198acbefad74.jpg",
             "coll_title": "la & vetta",
-            "coll_link": "shopify://collections/la-vetta"
+            "coll_link": "shopify:\/\/collections\/la-vetta"
           }
         },
         "7a94be23-b9d0-40b6-a7ec-79f871c45a83": {
           "type": "image",
           "settings": {
-            "imgblock": "shopify://shop_images/0_bd082ea5-0dfa-4890-8e77-f55a6beb7dca.jpg",
+            "imgblock": "shopify:\/\/shop_images\/0_bd082ea5-0dfa-4890-8e77-f55a6beb7dca.jpg",
             "coll_title": "Black Fashion",
-            "coll_link": "shopify://collections/black-fashion"
+            "coll_link": "shopify:\/\/collections\/black-fashion"
           }
         },
         "1f225b23-f4e8-4651-8e2f-1821efa79a60": {
           "type": "image",
           "settings": {
-            "imgblock": "shopify://shop_images/2_521cfe9d-c8a5-48ad-a3c7-51091f43dd6e.webp",
+            "imgblock": "shopify:\/\/shop_images\/2_521cfe9d-c8a5-48ad-a3c7-51091f43dd6e.webp",
             "coll_title": "EYYO",
-            "coll_link": "shopify://collections/eyyo"
+            "coll_link": "shopify:\/\/collections\/eyyo"
           }
         },
         "image_Kq7pVN": {
           "type": "image",
           "settings": {
-            "imgblock": "shopify://shop_images/new_last_image.jpg",
+            "imgblock": "shopify:\/\/shop_images\/new_last_image.jpg",
             "coll_title": "My Jest Fashion",
-            "coll_link": "shopify://collections/my-jest-fashion"
+            "coll_link": "shopify:\/\/collections\/my-jest-fashion"
           }
         }
       },
@@ -486,7 +502,7 @@
         "title": "Shop By Brands",
         "sub_title": "",
         "label": "View ALL",
-        "url": "shopify://pages/shop-by-brands",
+        "url": "shopify:\/\/pages\/shop-by-brands",
         "padding_top": 20,
         "padding_bottom": 20
       }
@@ -496,7 +512,10 @@
       "blocks": {
         "heading_dxj3Wr": {
           "type": "heading",
-          "settings": { "heading": "Bulk Order", "heading_size": "h2" }
+          "settings": {
+            "heading": "Bulk Order",
+            "heading_size": "h2"
+          }
         },
         "text_pzaDp9": {
           "type": "text",
@@ -509,7 +528,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Bulk BUY",
-            "button_link_1": "shopify://pages/contact",
+            "button_link_1": "shopify:\/\/pages\/contact",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -517,10 +536,16 @@
           }
         }
       },
-      "block_order": ["heading_dxj3Wr", "text_pzaDp9", "buttons_e9rRLe"],
-      "custom_css": [],
+      "block_order": [
+        "heading_dxj3Wr",
+        "text_pzaDp9",
+        "buttons_e9rRLe"
+      ],
+      "custom_css": [
+
+      ],
       "settings": {
-        "image": "shopify://shop_images/Rectangle_17511.jpg",
+        "image": "shopify:\/\/shop_images\/Rectangle_17511.jpg",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "desktop_content_position": "bottom-left",
@@ -536,7 +561,7 @@
     "1626d4e3-0a59-4b97-a1f8-faae3bb26e3a": {
       "type": "new-product-slider",
       "settings": {
-        "title": "<strong>Trending Styles</strong>",
+        "title": "<strong>Trending Styles<\/strong>",
         "label": "View ALL",
         "description": "",
         "show_description": false,
@@ -560,7 +585,7 @@
           "type": "select",
           "settings": {
             "product": "sunset-dress",
-            "video": "https://cdn.shopify.com/videos/c/o/v/547403115f1d4e8cb83a05645d7e6ce1.mp4",
+            "video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/547403115f1d4e8cb83a05645d7e6ce1.mp4",
             "enable_video_looping": true,
             "autoplay": true,
             "muted": true
@@ -570,7 +595,7 @@
           "type": "select",
           "settings": {
             "product": "striped-set",
-            "video": "https://cdn.shopify.com/videos/c/o/v/addd3dfed78d4d9a9dc8eae54e2ed37b.mp4",
+            "video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/addd3dfed78d4d9a9dc8eae54e2ed37b.mp4",
             "enable_video_looping": true,
             "autoplay": true,
             "muted": true
@@ -580,7 +605,7 @@
           "type": "select",
           "settings": {
             "product": "charcoal-vest",
-            "video": "https://cdn.shopify.com/videos/c/o/v/608840d9e92d48da8ac5fdac7c41ba3f.mp4",
+            "video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/608840d9e92d48da8ac5fdac7c41ba3f.mp4",
             "enable_video_looping": true,
             "autoplay": true,
             "muted": true
@@ -590,7 +615,7 @@
           "type": "select",
           "settings": {
             "product": "box-pleated-skirt-with-shorts",
-            "video": "https://cdn.shopify.com/videos/c/o/v/6fbb39671ffb4bbf9d1dbc7ebc04ffda.mp4",
+            "video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/6fbb39671ffb4bbf9d1dbc7ebc04ffda.mp4",
             "enable_video_looping": true,
             "autoplay": true,
             "muted": true
@@ -624,7 +649,7 @@
       "type": "apps",
       "blocks": {
         "b85b7f6c-5bbd-45cd-946f-fdef1e995fb4": {
-          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "type": "shopify:\/\/apps\/instafeed\/blocks\/app-block\/c447db20-095d-4a10-9725-b5977662c9d5",
           "settings": {
             "title": "#ZWANKEECLOTHING",
             "title_color": "",
@@ -634,13 +659,17 @@
           }
         }
       },
-      "block_order": ["b85b7f6c-5bbd-45cd-946f-fdef1e995fb4"],
+      "block_order": [
+        "b85b7f6c-5bbd-45cd-946f-fdef1e995fb4"
+      ],
       "custom_css": [
         "#insta-feed h2 {font-size: 34px; font-weight: 600; letter-spacing: 0; text-transform: capitalize; text-align: left;}",
         " {margin-bottom: 40px; margin-top: 20px;}",
         "@media screen and (max-width: 800px) {#insta-feed h2 {font-size: 25px; text-align: center; }}"
       ],
-      "settings": { "include_margins": true }
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
