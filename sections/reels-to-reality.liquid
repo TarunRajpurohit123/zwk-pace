@@ -1,0 +1,493 @@
+<style>
+   .mainlogp-sliderright-{{ section.id }} {
+     visibility: hidden;
+     opacity: 0;
+     transition: opacity 0.1s;
+     display:none;
+  }
+
+
+  .mainlogp-sliderright-{{ section.id }}.slick-initialized {
+    visibility: visible;
+    opacity: 1;
+    display:block;
+  }
+   .right-text-block video {
+      width: 100%;
+      max-width: 100%;
+  }
+</style>
+<style>
+  @media screen and (min-width: 800px) {
+      .flex-wrap-left-side{
+         grid-template-columns: 100% !important;
+      }
+  }
+  .flex-wrap-left-side {
+    grid-template-columns: 100%;
+  }
+</style>
+
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- if section.settings.enable_quick_add -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- liquid
+  assign products_to_display = section.settings.collection.all_products_count
+
+  if section.settings.collection.all_products_count > section.settings.products_to_show
+    assign products_to_display = section.settings.products_to_show
+    assign more_in_collection = true
+  endif
+  assign columns_mobile_int = section.settings.columns_mobile | plus: 0
+  assign show_mobile_slider = false
+  if section.settings.swipe_on_mobile and products_to_display > columns_mobile_int
+    assign show_mobile_slider = true
+  endif
+
+  assign show_desktop_slider = false
+  if section.settings.enable_desktop_slider and products_to_display > section.settings.columns_desktop
+    assign show_desktop_slider = true
+  endif
+-%}
+{%- style -%}
+     .contain-ara .title_cnt {
+        font-size: 12px;
+        white-space: nowrap;
+        padding: 0px 6px;
+        font-family: Inter;
+        font-weight: 500;
+        line-height: 19.36px;
+        text-align: center;
+        overflow: hidden;
+        padding-bottom: 5px;
+        border-bottom: 1px solid;
+        margin-bottom: 10px;
+    }
+
+      .contain-ara {
+        position: absolute;
+        padding: 10px 0px 10px 0px;
+        bottom: 0;
+        background: #ffffff87;
+        width: 100%;
+        text-align: center;
+    }
+      .shop-now {
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 16.94px;
+        text-align: left;
+        text-decoration: none;
+        background: #000;
+        color: #fff;
+        padding: 5px 10px 5px 10px;
+        display: block;
+        width: max-content;
+        margin: auto auto 10px;
+    }
+      .grid__itemslider {
+        position: relative;
+    }
+        .section-{{ section.id }}-padding {
+          padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+          padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+        }
+
+        @media screen and (min-width: 750px) {
+          .section-{{ section.id }}-padding {
+            padding-top: {{ section.settings.padding_top }}px;
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+          }
+          .right-text-block.collection .slick-track {
+      transform: none !important;
+  }
+        }
+
+         @media screen and (max-width: 750px) {
+      .section-{{ section.id }}-padding {
+          padding-top: 10px;
+          padding-bottom: 20px;
+        }
+         }
+{%- endstyle -%}
+<div class="section-new-arrival section-{{ section.id }}-padding">
+  <div class="page-width">
+    {% if section.settings.title != blank %}
+      <div class="flex-header">
+        <h2 class="heading-main">{{ section.settings.title }}</h2>
+        {% if section.settings.url != blank %}
+          <div class="header-flex-btn desk-left-block">
+            <a href="{{ section.settings.url }}">{{ section.settings.label }}</a>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="flex-wrap-left-side">
+      <div class="right-text-block collection">
+        <div
+          id="Slider-{{ section.id }}"
+          class="mainlogp-sliderright-{{ section.id }}"
+        >
+          <!--
+            {%- for product in section.settings.collection.products limit: 10 -%}
+              <div
+                id="Slide-{{ section.id }}-{{ forloop.index }}"
+                class="grid__itemslider slick-slideshow__slidenew"
+              >
+                <video class="shopy-video" style="width: -webkit-fill-available;" autoplay="" loop="" muted="" playsinline="" loading="lazy" type="video/mp4"><source src="<video playsinline=" playsinline"="" preload="metadata" poster="//littleboxindia.com/cdn/shop/files/preview_images/7e8cdb0e858a4b4387cfa317c38e1d03.thumbnail.0000000000_small.jpg?v=1709582768"><source src="https://cdn.shopify.com/videos/c/vp/7e8cdb0e858a4b4387cfa317c38e1d03/7e8cdb0e858a4b4387cfa317c38e1d03.HD-1080p-4.8Mbps-25425879.mp4" type="video/mp4"><img src="//littleboxindia.com/cdn/shop/files/preview_images/7e8cdb0e858a4b4387cfa317c38e1d03.thumbnail.0000000000_small.jpg?v=1709582768"></video>
+                <div class="contain-ara">
+                    <div class="title_cnt">{{ product.title }}</div>
+                  <a href="{{ product.url }}" class="shop-now">Shop Now</a>
+                </div>
+              </div>
+            {%- endfor -%}
+          -->
+          {% for block in section.blocks %}
+            {% assign product = all_products[block.settings.product] %}
+            <div id="Slide-{{ section.id }}-{{ forloop.index }}" class="grid__itemslider slick-slideshow__slidenew">
+              <div class="contain-aras">
+                <video
+                  class="shopy-video"
+                  style="width: -webkit-fill-available;"
+                  autoplay=""
+                  loop=""
+                  muted=""
+                  playsinline=""
+                  loading="lazy"
+                  type="video/mp4"
+                >
+                  <source poster="{{ product.featured_image | image_url: '1024x' }}">
+                  <source src="{{ block.settings.video}}" type="video/mp4">
+                  <img src="//littleboxindia.com/cdn/shop/files/preview_images/7e8cdb0e858a4b4387cfa317c38e1d03.thumbnail.0000000000_small.jpg?v=1709582768">
+                </video>
+
+                <div class="contain-ara">
+                  <div class="title_cnt">{{ product.title }}</div>
+                  <a href="{{ product.url }}" class="shop-now">Shop Now</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="page-width">
+          <div class="flex-progress-button">
+            <div class="progree-bar">
+              <div
+                class="progress_brand progress-main"
+                role="progressbar"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="background-size: 2% 100%;"
+              >
+                <span class="slider__label_b sr-onlys"> </span>
+              </div>
+            </div>
+            <div class="nav-button">
+              <ul>
+                <li class="prevsrev--{{ section.id }} slider-arrowleft">{% render 'prevs_arrow' %}</li>
+                <li class="nextsrev--{{ section.id }} slider-arrowright">{% render 'nexts_arrow' %}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {% if section.settings.url != blank %}
+          <div class="header-flex-button mobile-left-block" style="display:none;">
+            <a href="{{ section.settings.url }}">{{ section.settings.label }}</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+   $('.mainlogp-sliderright-{{ section.id }}').on('touchstart', e => {
+    $('.mainlogp-sliderright-{{ section.id }}').slick('slickPlay');
+  });
+
+    if($(window).width() < 767){
+        var $sliderd = $('.mainlogp-sliderright-{{ section.id }}');
+      var $progressBard = $('.progress_brand');
+      var $progressBardLabel = $( '.slider__label_b' );
+
+      $sliderd.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+        var calc = ( (nextSlide) / (slick.slideCount-1) ) * 100;
+
+        $progressBard
+          .css('background-size', calc + '% 100%')
+          .attr('aria-valuenow', calc );
+
+        $progressBardLabel.text( calc + '% completed' );
+      });
+      $sliderd.slick({
+        arrows: true,
+        dots: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay:false,
+    autoplaySpeed:2000,
+        pauseOnHover:false,
+        centerPadding: '60px',
+         centerMode: true,
+         prevArrow: $('.prevsrev--{{ section.id }}'),
+         nextArrow: $('.nextsrev--{{ section.id }}')
+      });
+    }else{
+  // desktop view
+
+        var $sliderd = $('.mainlogp-sliderright-{{ section.id }}');
+        var $progressBard = $('.progress_brand');
+        var $progressBardLabel = $( '.slider__label_b' );
+
+
+
+      var settings = {
+        dots: false,
+        arrows: true,
+        slidesToShow: 4,
+        centerPadding: '0px',
+         centerMode: false,
+         prevArrow: $('.prevsrev--{{ section.id }}'),
+         nextArrow: $('.nextsrev--{{ section.id }}'),
+         responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                infinite: false,
+                centerMode: false,
+                dots: false
+              }
+            }
+          ]
+      };
+
+
+       $sliderd.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+          var calc = ( (nextSlide) / (slick.slideCount-1) ) * 100;
+
+          $progressBard
+            .css('background-size', calc + '% 100%')
+            .attr('aria-valuenow', calc );
+
+          $progressBardLabel.text( calc + '% completed' );
+        });
+
+
+
+
+      $sliderd.slick(settings);
+      $sliderd.slick('slickGoTo', 1);
+      setSlideVisibility();
+
+      $sliderd.on('afterChange', function() {
+        setSlideVisibility();
+      });
+  }
+</script>
+
+{% schema %}
+  {
+  "name": "Reels to Reality",
+  "tag": "section",
+  "class": "section new-arrival-block",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Section Title"
+    },
+    {
+      "type": "textarea",
+      "id": "sub_title",
+      "label": "Section Text"
+    },
+     {
+            "type": "text",
+            "id": "label",
+            "label": "Button Label"
+          },
+     {
+            "type": "url",
+            "id": "url",
+            "label": "Button Link"
+          },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.featured-collection.settings.collection.label"
+    },
+
+
+
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "t:sections.featured-collection.settings.show_view_all.label"
+    },
+    {
+      "type": "select",
+      "id": "view_all_style",
+      "label": "t:sections.featured-collection.settings.view_all_style.label",
+      "options": [
+        {
+          "value": "link",
+          "label": "t:sections.featured-collection.settings.view_all_style.options__1.label"
+        },
+        {
+          "value": "outline",
+          "label": "t:sections.featured-collection.settings.view_all_style.options__2.label"
+        },
+        {
+          "value": "solid",
+          "label": "t:sections.featured-collection.settings.view_all_style.options__3.label"
+        }
+      ],
+      "default": "solid"
+    },
+
+
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection.settings.header.content"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.featured-collection.settings.image_ratio.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.show_vendor.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.show_rating.label",
+      "info": "t:sections.featured-collection.settings.show_rating.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_add",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.enable_quick_buy.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+     "blocks":[
+    {
+      "type":"select",
+      "name":"Select Product",
+      "settings":[
+        {
+            "type":"product",
+            "id":"product",
+            "label":"Select Product"
+        },
+        {
+      "type": "url",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_video_looping",
+      "label": "Enable Video Looping",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "muted",
+      "label": "Muted",
+      "default": true
+    }
+      ]
+    }
+ ],
+  "presets": [
+    {
+      "name": "Reels to Reality"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

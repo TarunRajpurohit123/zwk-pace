@@ -1,0 +1,344 @@
+<div class="page-width">
+<div class="faq">
+    {% for block in section.blocks %}        
+    <p class="accordion {% if forloop.index == 1 %} active{% endif %}">{{ block.settings.que }}</p>
+    <div class="panel {% if forloop.index == 1 %} show{% endif %}">{{ block.settings.ans }}</div>
+    {% endfor %}
+ <div> 
+ </div>
+<style>
+.faq .accordion {
+    /* margin-bottom: 30px; */
+    box-shadow: 0px 0px 12px 0px #06422A1A;
+    box-shadow: 0px 0px 12px 0px #06422A1A;
+}
+  @media screen and (min-width:481px) and (max-width:991px){
+    p.accordion {
+    font-size: 12px !important;
+  }
+    div.panel p{
+    font-size:12px !important;
+    }
+  }
+
+  @media screen and (min-width:768px){
+  .map-faq-disp {
+    display: flex;
+}
+  }
+.faq {
+	height: auto;
+/* 	margin-bottom: 10px; */
+	margin-top: 0px;
+      margin-bottom: 50px;
+}
+
+p.accordion {
+  background-color: #ffffff;
+    color: #000000;
+  cursor: pointer;
+  padding: 20px 18px;
+  width: 100%;
+  font-weight: bold;
+  text-align: left;
+  outline: none;
+  font-size: 18px;
+  /* border: 3px solid #da291c; */
+  transition: 0.4s;
+  margin-bottom: 0;
+  margin-top: 1em;
+}
+ar {
+    padding: 5px 0 ;
+}
+p.accordion.active,
+p.accordion:hover {
+/* background-color: #da291c; */
+/* color:#fff; */
+}
+p.accordion img {
+    width: 25px;
+    margin-right: 10px;
+}
+p.accordion:after {
+	content: '+';
+	font-size: 18px;
+	color: #000;
+	float: right;
+	margin-left: 5px;
+}
+
+  p.accordion.active:after {
+    content: "-";
+    color:#000;
+  }
+
+div.panel {
+	padding:0 10px;
+	background-color: white;
+	max-height: 0;
+	overflow: hidden;
+	/* transition: 0.2s ease-in-out; */
+	opacity: 0;
+  	text-align:justify;
+      margin-bottom: 0;
+}
+div.panel p {
+    color: #000;
+    font-size: 17px;
+    line-height: 25px;
+    letter-spacing: 0px;
+}
+div.panel p {
+    margin-top: 0;
+}
+div.panel.show {
+	opacity: 1;
+	max-height: 500px;
+    font-size: 13px;
+    padding: 10px 15px;
+    /* border: 3px solid #da291c; */
+  box-shadow: 0px 11px 12px 0px #06422A1A;
+    box-shadow: 0px 11px 12px 0px #06422A1A;
+}
+  .panel.show ul li {
+    list-style: disc;
+    text-align: justify;
+    color: #000;
+    font-size: 15px;
+    line-height: 25px;
+    letter-spacing: 0px;
+}
+  
+  .panel.show ul {
+    padding-left: 25px;
+    text-align: justify;
+}
+@media screen and (max-width: 480px) { 
+  .feature-row__text--left iframe {
+    height: 350px !important;
+}
+  .faq {
+    margin-bottom: 40px;
+}
+  .faq-conainer {
+    padding: 10px !important;
+}
+  .mchn-tool-area .page-width{
+  padding:0 15px;
+  }
+  
+  p.accordion:after {
+content: '+';
+    font-size: 13px;
+    float: right;
+    margin-left: 5px;
+    padding: 5px 0;
+    position: relative;
+    top: 0;
+    right: 0px;
+    line-height: 0;
+}
+
+p.accordion.active:after {
+	content: "-";
+}
+  p.accordion span{
+    display:none;
+  }
+  p.accordion {
+  font-size:13px !important;
+    /* position:relative; */
+  
+  }
+  div.panel p {
+    font-size: 12px  !important;
+    line-height: 14px  !important;
+}
+  p.accordion img {
+    width: 25px;
+    margin-right: 5px;
+}
+}
+  
+/* custom radio */
+  .customRadio input[type=radio]:checked+label {
+   font-weight:bold;
+}
+
+.customRadio input[type=radio] {
+  position: absolute;
+  left: -9999px !important;
+}
+
+.customRadio input[type=radio]+label {
+  position: relative;
+  padding: 0px 0 0 40px;
+  cursor: pointer;
+}
+
+.customRadio input[type=radio]+label:before {
+  content: '';
+  background: #fff;
+  border: 2px solid #8d8d8d;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+  .customRadio input[type=radio]:checked+label:before {
+     border: 2px solid #e199ad;
+}
+
+.customRadio input[type=radio]+label:after {
+  content: '';
+  background:#e199ad;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 9px;
+  left: 7px;
+  opacity: 0;
+  transform: scale(2);
+  transition: transform 0.3s linear, opacity 0.3s linear;
+}
+
+.customRadio input[type=radio]:checked+label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* custom radio with image */
+
+.customRadioWithImage input[type=radio] {
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+.customRadioWithImage input[type=radio]+label .image {
+  position: relative !important;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #333;
+  border-radius: 50%;
+}
+
+.customRadioWithImage input[type=radio]+label .image img {
+  position: relative;
+  border-radius: 50%;
+}
+
+.customRadioWithImage input[type=radio]+label .image:after {
+  content: '';
+  border: 4px solid #1cbe9d;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: scale(1.2);
+  transition: transform 0.3s linear, opacity 0.3s linear;
+}
+
+.customRadioWithImage input[type=radio]:checked+label .image:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+</style>
+ <script>
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+
+
+          var acc = document.getElementsByClassName("accordion");
+          var panel = document.getElementsByClassName('panel');
+
+          for (var i = 0; i < acc.length; i++) {
+            acc[i].onclick = function() {
+              var setClasses = !this.classList.contains('active');
+              setClass(acc, 'active', 'remove');
+              setClass(panel, 'show', 'remove');
+
+              if (setClasses) {
+                this.classList.toggle("active");
+                this.nextElementSibling.classList.toggle("show");
+              }
+            }
+          }
+
+          function setClass(els, className, fnName) {
+            for (var i = 0; i < els.length; i++) {
+              els[i].classList[fnName](className);
+            }
+          }
+
+        });
+ </script>
+{% schema %}
+ {
+  "name": "faq",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "text",
+      "name": {
+        "en": "FAQ"
+      },
+      "settings": [
+        {
+          "type": "text",
+          "id": "que",
+          "label": "Question",
+          "default": "Ask your question"
+        },
+       
+    {
+          "type": "html",
+          "id": "ans",
+          "label": {
+            "de": "Text",
+            "en": "Answer",
+            "es": "Texto",
+            "fr": "Texte",
+            "it": "Testo",
+            "ja": "????",
+            "nl": "Tekst",
+            "pt-BR": "Texto",
+            "zh-CN": "??",
+            "zh-TW": "??"
+          },
+          "default": {
+            "de": "<p>Blogposts, Produkte oder Promotions mit Ihren Kunden teilen. Nutzen Sie diesen Text, um Produkte zu beschreiben, Details zu Verfügbarkeit und Stil mitzuteilen oder als Ort, wo Reviews oder FAQs stehen.</p>",
+            "en": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>",
+            "es": "<p>Comparte entradas de blogs, productos o promociones con tus clientes. Usa este texto para describir productos, compartir detalles sobre la disponibilidad y el estilo, o como un espacio para mostrar reseñas recientes o preguntas frecuentes.</p>",
+            "fr": "<p>Partagez des articles de blog, des produits ou des promotions avec vos clients. Utilisez ce texte pour décrire vos produits, partager des détails sur leur disponibilité ou leur style, ou encore pour afficher des FAQ et avis récents.</p>",
+            "it": "<p>Condividi articoli del blog, prodotti o promozioni con i tuoi clienti. Utilizza questo spazio per descrivere i prodotti, condividendo dettagli sulla loro disponibilità e sul loro stile, oppure per mostrare recensioni recenti o domande frequenti.</p>",
+            "ja": "<p>?????????????????????????????????????????????????????????????????????????FAQ??????????????????</p>",
+            "nl": "<p>Deel blogposts, producten of promoties met uw klanten. Gebruik deze tekst om producten te beschrijven, details over beschikbaarheid en stijl te delen of als een ruimte om recente beoordelingen of veelgestelde vragen weer te geven.</p>",
+            "pt-BR": "<p>Compartilhe posts de blogs, produtos ou promoções com seus clientes. Use este texto para descrever produtos, compartilhar detalhes sobre disponibilidade e estilo ou como um espaço para exibir comentários recentes ou perguntas frequentes.</p>",
+            "zh-CN": "<p>??????????????????????????????????????????????,????????????????????????</p>",
+            "zh-TW": "<p>???????????????????????????????????????????,?????????????</p>"
+          }
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "faq",
+      "blocks": [
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

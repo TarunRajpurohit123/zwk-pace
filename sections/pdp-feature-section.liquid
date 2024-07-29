@@ -1,0 +1,216 @@
+<style>
+   .feature-pdp  h3.inline-richtext {
+       margin: 0 0 5px;
+   }
+   .feature-pdp  .multicolumn-card.content-container {
+       display: flex;
+   }
+     .feature-pdp ul li {
+       list-style: none;
+   }
+     .feature-pdp ul {
+       display: flex;
+       justify-content: space-between;
+       padding-left: 0;
+   }
+   .feature-card__info {
+     margin: auto 0;
+     padding-left: 15px;
+   }
+  .feature-card__info .inline-richtext{
+    color:#000;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 32px;
+    text-align: left;
+   }
+  .feature-card__info .rte p {
+    font-family: var(--font-body-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    text-align: left;
+    color: #000;
+  }
+   /* .feature-pdp{
+     padding:30px 0;
+   } */
+   #feature-sec-{{ section.id }}{
+   margin: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+   }
+
+  @media screen and (max-width:991px){
+    .feature-pdp .multicolumn-card.content-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .feature-card__info .inline-richtext, .feature-card__info .rte p{
+      text-align: center;
+    }
+    .feature-card__info .inline-richtext{
+      font-size: 14px;
+      line-height: 23px;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .feature-card__info .rte p{
+      font-size: 10px;
+      line-height: 14px;
+      text-align: center;
+    }
+    .pdp-feature-icon svg {
+      /* width: 50px;
+      height: 50px; */
+      width: 100%;
+      height: 100%;
+    }
+  }
+</style>
+<section id="feature-sec-{{ section.id }}" class="feature-pdp" style="background:#ffffff;">
+  <div class="page-width">
+    <ul
+      class=""
+      id="featured-pdp-{{ section.id }}"
+    >
+      {%- liquid
+        assign highest_ratio = 0
+        for block in section.blocks
+          if block.settings.image.aspect_ratio > highest_ratio
+            assign highest_ratio = block.settings.image.aspect_ratio
+          endif
+        endfor
+      -%}
+      {%- for block in section.blocks -%}
+        {%- assign empty_column = '' -%}
+        {%- if block.settings.image == blank
+          and block.settings.title == blank
+          and block.settings.text == blank
+          and block.settings.link_label == blank
+        -%}
+          {%- assign empty_column = ' multicolumn-list__item--empty' -%}
+        {%- endif -%}
+
+        <li
+          id="featurepdp-{{ section.id }}-{{ forloop.index }}"
+          class=""
+        >
+          <div class="multicolumn-card content-container">
+            {%- if block.settings.image != blank -%}
+              {% if section.settings.image_ratio == 'adapt' or section.settings.image_ratio == 'circle' %}
+                {% assign spaced_image = true %}
+              {% endif %}
+              <div class="pdp-feature-icon">
+                {{ block.settings.image }}
+              </div>
+            {%- endif -%}
+            <div class="feature-card__info">
+              {%- if block.settings.title != blank -%}
+                <h3 class="inline-richtext">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <div class="rte">{{ block.settings.text }}</div>
+              {%- endif -%}
+              {%- if block.settings.link_label != blank -%}
+                <a
+                  class="link animate-arrow mit-btn"
+                  {% if block.settings.link == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ block.settings.link }}"
+                  {% endif %}
+                >
+                  {{- block.settings.link_label | escape -}}
+                </a>
+              {%- endif -%}
+            </div>
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PDP Feature info",
+  "class": "section feature-style-2",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "t:sections.multicolumn.blocks.column.name",
+      "settings": [
+        {
+          "type": "html",
+          "id": "image",
+          "label": "SVG ICON"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "default": "Column",
+          "label": "t:sections.multicolumn.blocks.column.settings.title.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+          "label": "t:sections.multicolumn.blocks.column.settings.text.label"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "t:sections.multicolumn.blocks.column.settings.link_label.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.multicolumn.blocks.column.settings.link.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP Feature info",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,312 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+  .section-{{ section.id }}-padding {
+      padding-top: 20px;
+      padding-bottom:5px;
+    }
+     }
+{%- endstyle -%}
+<div class="section-new-shopbyb section-{{ section.id }}-padding">
+  <div class="page-width">
+
+     {% if section.settings.title != blank %}
+    <div class="flex-header">
+      <h2 class="heading-main">{{ section.settings.title }}</h2>
+      {% if section.settings.url != blank %}
+        <div class="header-flex-btn desk-left-block"">
+          <a href="{{ section.settings.url }}">{{ section.settings.label }}</a>
+        </div>
+      {% endif %}
+    </div>
+     {% endif %}
+     
+    <div class="flex-wrap-left-side">
+      {% comment %}
+      <div class="left-text-block">
+        <h2>{{ section.settings.title }}</h2>
+        <p>{{ section.settings.sub_title }}</p>
+
+        {% if section.settings.url != blank %}
+          <div class="header-flex-button desk-left-block">
+            <a href="{{ section.settings.url }}">{{ section.settings.label }}</a>
+          </div>
+        {% endif %}
+      </div>
+      {% endcomment %}
+      <div class="right-text-block">
+        <div class="shopby-brand mainshop-by-brand-shopby-{{ section.id }}">
+          {%- for block in section.blocks -%}
+            <div class="coll--itemblock-look slick-slideshow__slide">
+              <a href="{{ block.settings.coll_link }}">
+                {% if block.settings.imgblock != blank %}
+                  <div class="img-block-left">
+                    <img
+                      src="{{ block.settings.imgblock | img_url: 'master' }}"
+                      alt="{{ block.settings.imgblock.alt }}"
+                      width="auto"
+                      height="auto"
+                      loading="lazy"
+                    >
+                    <div class="coll_title">{{ block.settings.coll_title }}</div>
+                  </div>
+                {% endif %}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+
+        {% if section.blocks.size > 4 %}
+        <div class="page-width">
+          <div class="flex-progress-button">
+            <div class="progree-bar">
+              <div
+                class="progress_brands progress-main"
+                role="progressbar"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="background-size: 5% 100%;"
+              >
+                <span class="slider__label_bs sr-onlys"> </span>
+              </div>
+            </div>
+            <div class="nav-button">
+              <ul>
+                <li class="prevsrev--{{ section.id }} slider-arrowleft">{% render 'prevs_arrow' %}</li>
+                <li class="nextsrev--{{ section.id }} slider-arrowright">{% render 'nexts_arrow' %}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+          {% if section.settings.url != blank %}
+          <div class="header-flex-button mobile-left-block" style="display:none;">
+            <a href="{{ section.settings.url }}">{{ section.settings.label }}</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .mainshop-by-brand-shopby-{{ section.id }} {
+   visibility: hidden;
+   opacity: 0;  
+   transition: opacity 0.1s;
+}
+
+.mainshop-by-brand-shopby-{{ section.id }}.slick-initialized {
+  visibility: visible;
+  opacity: 1;
+}
+  </style>
+<script>
+ $('.mainshop-by-brand-shopby-{{ section.id }}').on('touchstart', e => {
+  $('.mainshop-by-brand-shopby-{{ section.id }}').slick('slickPlay');
+});
+  if($(window).width() < 767){
+      var $sliderds = $('.mainshop-by-brand-shopby-{{ section.id }}');
+    var $progressBards = $('.progress_brands');
+    var $progressBardsLabel = $('.slider__label_bs');
+
+    $sliderds.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+      var calc = ( (nextSlide) / (slick.slideCount-1) ) * 100;
+
+      $progressBards
+        .css('background-size', calc + '% 100%')
+        .attr('aria-valuenow', calc );
+
+      $progressBardsLabel.text( calc + '% completed' );
+    });
+    $sliderds.slick({
+      arrows: true,
+      dots: false,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay:true,
+      autoplaySpeed:3000,
+      pauseOnHover:false,
+      centerPadding: '60px',
+      centerMode: true,
+      prevArrow: $('.prevsrev--{{ section.id }}'),
+      nextArrow: $('.nextsrev--{{ section.id }}')
+    });
+  }else{
+
+    // desktop view
+
+    
+     var $sliderds = $('.mainshop-by-brand-shopby-{{ section.id }}');
+    var $progressBards = $('.progress_brands');
+    var $progressBardsLabel = $( '.slider__label_bs' );
+
+  var settings = {
+        dots: false,
+        arrows: true,
+        slide: '.slick-slideshow__slide',
+        slidesToShow: 4,
+        slidesToScroll: 2,
+        centerMode: false,
+        centerPadding: '0',
+        autoplay:true,
+        autoplaySpeed:3000,
+        prevArrow: $('.prevsrev--{{ section.id }}'),
+        nextArrow: $('.nextsrev--{{ section.id }}'),
+        responsive: [
+        {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3,
+          infinite: false,
+          dots: false
+          }
+        }
+      ]
+  };
+
+
+        $sliderds.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+      var calc = ( (nextSlide) / (slick.slideCount-1) ) * 100;
+
+      $progressBards
+        .css('background-size', calc + '% 100%')
+        .attr('aria-valuenow', calc );
+
+      $progressBardsLabel.text( calc + '% completed' );
+    });
+        
+  function setSlideVisibility() {
+    //Find the visible slides i.e. where aria-hidden="false"
+    // var visibleSlides = $sliderdsl.find('.slick-slideshow__slide[aria-hidden="false"]');
+    //Make sure all of the visible slides have an opacity of 1
+    // $(visibleSlides).each(function() {
+    //   $(this).css('opacity', 1);
+    // });
+
+    //Set the opacity of the first and last partial slides.
+    // $(visibleSlides).first().prev().css('opacity', 1);
+  }
+
+  $sliderds.slick(settings);
+  $sliderds.slick('slickGoTo', 1);
+  setSlideVisibility();
+
+  $sliderds.on('afterChange', function() {
+    setSlideVisibility();
+  });
+  }
+</script>
+{% comment %}
+<style>
+   @media screen and (min-width: 767px) {
+    .new-shopbybrand .slick-list {
+      padding-left: 0px!important; // half partial
+  }
+   }
+</style>
+{% endcomment %}
+<style>
+  .flex-wrap-left-side {
+    grid-template-columns: 100%;
+}
+</style>
+{% schema %}
+  {
+  "name": "New Shop By Brands",
+  "tag": "section",
+  "class": "section new-shopbybrand",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Section Title"
+    },
+    {
+      "type": "textarea",
+      "id": "sub_title",
+      "label": "Section Text"
+    },
+     {
+            "type": "text",
+            "id": "label",
+            "label": "Button Label"
+          },
+     {
+            "type": "url",
+            "id": "url",
+            "label": "Button Link"
+          },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+
+     "blocks": [
+    {
+      "type": "image",
+      "name": "Brand Collection Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "imgblock",
+          "label": "t:sections.collage.blocks.image.settings.image.label"
+        },
+        {
+            "type": "text",
+            "id": "coll_title",
+            "label": "Brand Title"
+          },
+        {
+            "type": "url",
+            "id": "coll_link",
+            "label": "Link"
+          }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "New Shop By Brands"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

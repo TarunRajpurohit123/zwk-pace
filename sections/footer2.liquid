@@ -1,0 +1,1060 @@
+{% render 'style-footer-default' %}
+{{ 'new-section-footer.css' | asset_url | stylesheet_tag }}
+{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}
+{{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
+{{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+{%- if section.settings.fb_like_code != blank -%}
+  {%- assign url = section.settings.fb_like_code
+    | split: 'src="'
+    | last
+    | split: 'nonce'
+    | first
+    | split: '"'
+    | first
+  -%}
+{%- endif -%}
+<footer
+  class="site-footer footer-default"
+  role="contentinfo"
+  {% if section.settings.fb_like_code != blank %}
+    data-loader-script="{{url}}"
+  {% endif %}
+>
+  {% if section.blocks.size > 0 or section.settings.footer_newsletter_enable or section.settings.footer_social_enable %}
+    <div class="footer-top">
+      <div class="page-width">
+        <div class="row">
+          <div
+            class="col-12 col-md-12  footer-col-left"
+            style="width:100%;"
+          >
+            <div class="row">
+              <div class="col-footer col-md-2.5 col-12" style="    margin-bottom: 2px;">
+                <img
+                  src="{{ section.settings.footer-logo | img_url: '600x' }}"
+                  alt="footer logo"
+                  {% render 'lazyload' %}
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          {% if section.blocks.size > 0 %}
+            <div
+              class="col-12 col-md-12{% if section.settings.footer_newsletter_enable or section.settings.footer_social_enable %}  footer-col-left{% else %} col-lg-12 col-xl-12{% endif %}"
+              style="margin: auto;width:100%;"
+            >
+              <div class="row">
+                {% case section.blocks.size %}
+                  {% when 1 %}
+                    {%- assign column_size = 'col-12' -%}
+                  {% when 2 %}
+                    {%- assign column_size = 'col-12 col-md-6' -%}
+                  {% when 3 %}
+                    {%- assign column_size = 'col-12 col-md-4' -%}
+                  {% when 4 %}
+                    {%- assign column_size = 'col-12 col-md-3 col-lg-6 col-xl-3' -%}
+                {% endcase %}
+                {% for block in section.blocks %}
+                  {%- case block.type -%}
+                    {%- when 'footer_link' -%}
+                      <div class="col-footer col-md-2.5 col-12">
+                        {% if block.settings.footer_title != blank %}
+                          <h3 class="foot-title dropdow-mb">
+                            {% render 'multilang' with block.settings.footer_title %}
+                          </h3>
+                        {% endif %}
+                        {%- assign footer_linklist = block.settings.footer_linklist -%}
+                        {% if linklists[footer_linklist].links.size > 0 %}
+                          <ul class="panel">
+                            {% for link in linklists[footer_linklist].links %}
+                              <li>
+                                <a href="{{ link.url}}" title="{{ link.title }}" class="foot-link">
+                                  {% render 'multilang' with link.title %}
+                                </a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </div>
+                    {%- when 'footer_text' -%}
+                      <div class="col-footer col-md-8 col-12">
+                        {% if block.settings.footer_title != blank %}
+                          <h3 class="foot-title ">
+                            {% render 'multilang' with block.settings.footer_title %}
+                          </h3>
+                        {% endif %}
+                        <div class="desc">
+                          {{ block.settings.footer_desc }}
+                        </div>
+                      </div>
+                    {%- when 'footer_news' -%}
+                      <div class="col-footer col-12 col-md-4 pay-news">
+                        {% if section.settings.footer_newsletter_enable %}
+                          <div class="footer-newsletter">
+                            {% if section.settings.footer_newsletter_title != blank %}
+                              <h3 class="newsletter-title foot-title">
+                                {% render 'multilang' with section.settings.footer_newsletter_title %}
+                              </h3>
+                            {% endif %}
+                            {% if section.settings.footer_newsletter_des != blank %}
+                              <p class="newsletter-des">
+                                {% render 'multilang' with section.settings.footer_newsletter_des %}
+                              </p>
+                            {% endif %}
+                            {% render 'newsletter-block' %}
+                          </div>
+                        {% endif %}
+                      </div>
+                    {%- when 'footer_pay' -%}
+                      <div class="col-footer col-12 col-md-2.5 pay-news">
+                        {% if section.settings.show_payment_icons %}
+                          {% assign payment_string = 'visa,visa_electron,master,maestro,american_express,solo,amazon_payments,apple_pay,bitcoin,cirrus,dankort,diners_club,discover,paypal,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,stripe,sage,wallet,western' %}
+                          {% assign methods = payment_string | split: ',' %}
+                        {% endif %}
+                        <ul class="payment-methods">
+                          {% for method in methods %}
+                            {%- assign display_current_method = method | prepend: 'payment_display_' -%}
+                            {% if section.settings[display_current_method] %}
+                              {%- assign current_method_icon = method | prepend: 'icon_' -%}
+                              <li>
+                                <img
+                                  src="{{ section.settings[current_method_icon] | img_url: 'x32' }}"
+                                  alt="{{ method }}"
+                                  {% render 'lazyload' %}
+                                >
+                              </li>
+                            {% endif %}
+                          {% endfor %}
+                        </ul>
+                      </div>
+                    {%- when 'footer_social' -%}
+                      <div class="col-footer col-12 col-md-2.5 social-f">
+                        {% if section.settings.footer_social_enable %}
+                          {%- liquid
+                            assign has_social_icons = true
+                            if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
+                              assign has_social_icons = false
+                            endif
+                          -%}
+                          <div class="footer-social{% if settings.header_layout == 'vertical' %} enable-color{% endif %}">
+                            {% if section.settings.footer_social_title != blank %}
+                              <h3 class="social-title foot-title">
+                                {% render 'multilang' with section.settings.footer_social_title %}
+                              </h3>
+                            {% endif %}
+                            {%- if section.settings.footer_social_enable and has_social_icons -%}
+                              <div class="footer-s-media">
+                                {%- render 'social-icons', class: 'footer__list-social' -%}
+                              </div>
+                            {%- endif -%}
+                          </div>
+                        {% endif %}
+                      </div>
+                  {% endcase %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if section.settings.footer_address_code != blank or section.settings.show_payment_icons %}
+    <div class="footer-bottom">
+      <div class="page-width">
+        <div class="row{% if section.settings.footer_address_code != blank and section.settings.show_payment_icons %} justify-content-lg-between{% endif %}">
+          <div class="col-12{% if section.settings.show_payment_icons %} col-lg-12{% endif %} copy-cont" style="">
+            <address>
+              {% if settings.enable_multilang %}
+                <div class="lang1">
+                  {{ section.settings.footer_address_code | split: '[lang2]' | first }}
+                </div>
+                <div class="lang2">
+                  {{ section.settings.footer_address_code | split: '[lang2]' | last }}
+                </div>
+              {% else %}
+                <div>
+                  {{ section.settings.footer_address_code | split: '[lang2]' | first }}
+                </div>
+              {% endif %}
+            </address>
+          </div>
+          <div class="col-12{% if section.settings.show_payment_icons %} col-lg-6{% endif %}" style="display:none;">
+            <ul class="payment-methods">
+              {% for method in methods %}
+                {%- assign display_current_method = method | prepend: 'payment_display_' -%}
+                {% if section.settings[display_current_method] %}
+                  {%- assign current_method_icon = method | prepend: 'icon_' -%}
+                  <li>
+                    <img
+                      src="{{ section.settings[current_method_icon] | img_url: 'x32' }}"
+                      alt="{{ method }}"
+                      {% render 'lazyload' %}
+                    >
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</footer>
+<style>
+      .footer-newsletter {
+        max-width: 468px;
+    }
+          .footer-bottom{
+                border-top: 1px solid #ffffff !important;
+          }
+          .footer-social li a {
+            background-color: #0000;
+        }
+        .payment-methods li:last-child {
+          margin-right: 0;
+      }
+                .site-footer .newsletter .input-group-field {
+                  margin-right: 0;
+              /*     margin-bottom: 1rem; */
+                  width: 100%;
+                      max-width: 100%;
+                  padding:5px;
+                      font-size: 14px;
+                  font-weight: 300;
+                  letter-spacing: 0px;
+                  text-align: left;
+              }
+                .site-footer .newsletter .btn {
+                  width: 40%;
+                  font-size: 14px;
+                  font-weight: 400;
+                  line-height: 14px;
+                  letter-spacing: 0px;
+                  text-align: center;
+                  text-transform: capitalize;
+              }
+              .footer-col-right .foot-title {
+                  text-align: center;
+                  border: navajowhite;
+              }
+              .social-icons {
+                  margin: auto;
+              }
+              .header-vertical-tpl .foot-title {
+                  border-bottom: navajowhite;
+              }
+              .site-footer .footer-newsletter .input-group {
+                  flex-wrap: nowrap !important;
+              }
+                .site-footer .newsletter input {
+                  padding: 3px !important;
+              }
+              .site-footer .col-footer ul {
+                  margin: 0;
+                  padding: 0;
+                  list-style: none;
+              }
+              .site-footer .foot-title {
+                text-transform: unset;
+                font-size: 16px;
+                font-family: Questrial;
+                font-weight: 400;
+                line-height: 24px;
+                letter-spacing: 0px;
+                text-align: left;
+
+              }
+              .list-social {
+                  justify-content: flex-start;
+              }
+              .payment-methods li {
+                  display: inline-block;
+                  margin-right: 12px;
+                  margin-bottom: 0px;
+                  list-style: none;
+              }
+              .col-12.col-md-12.footer-col-left {
+                  padding: 0 15px;
+              }
+              .footer-default .footer-top {
+                  padding: 35px 0 10px;
+              }
+              .payment-methods li img {
+                  max-height: 24px;
+              }
+              .footer-bottom address {
+                  font-style: normal;
+                  font-size: 16px;
+                  font-weight: 400;
+                  line-height: 21px;
+                  letter-spacing: 0em;
+                  text-align: center;
+              }
+              @media (min-width: 992px){
+                .col-footer.col-md-2\.5.col-12 {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 26%;
+                flex: 0 0 26%;
+                max-width: 26%;
+                }
+                .col-footer.col-12.col-md-2\.5.social-f{
+                   -webkit-box-flex: 0;
+                -ms-flex: 0 0 22%;
+                flex: 0 0 22%;
+                max-width: 22%;
+                }
+                .footer-social {
+                width: max-content;
+                margin: auto 0 auto auto;
+            }
+                .col-footer.col-12.col-md-4, .col-footer.col-12.col-md-2\.5.pay-news {
+                  -webkit-box-flex: 0;
+                  -ms-flex: 0 0 50%;
+                  flex: 0 0 50%;
+                  max-width: 50%;
+                }
+                .col-footer.col-12.col-md-2\.5.pay-news {
+              margin: auto 0 0 auto;
+              display: flex;
+              margin-bottom: 25px;
+              justify-content: flex-end;
+          }
+                .col-md-8 {
+                  -webkit-box-flex: 0;
+                  -ms-flex: 0 0 66.666667%;
+                  flex: 0 0 66.666667%;
+                  max-width: 66.666667%;
+              }
+              .footer-top .row {
+                  display: flex;
+                  display: -webkit-box;
+                  display: -ms-flexbox;
+                  display: flex;
+                  -ms-flex-wrap: wrap;
+                  flex-wrap: wrap;
+                  margin-right: -15px;
+                 margin-left: -15px !important;
+              }
+              .col-footer.col-md-8.col-12 {
+                  margin-top: -80px;
+              }
+              .col-footer {
+                  padding-right: 15px;
+                  padding-left: 15px;
+              }
+              .footer-bottom  .col-lg-6 {
+                  -webkit-box-flex: 0;
+                  -ms-flex: 0 0 50%;
+                  flex: 0 0 50%;
+                  max-width: 50%;
+              }
+              .footer-bottom   .col-12.col-lg-6.copy-cont {
+                  text-align: left;
+                  margin: auto;
+                  line-height: normal;
+              }
+              .footer-bottom   ul.payment-methods {
+                  text-align: right;
+                  line-height: normal;
+                padding: 0;
+                  margin: 0;
+              }
+              .footer-bottom   .row.justify-content-lg-between {
+                  display: -webkit-box;
+                  display: -ms-flexbox;
+                  display: flex;
+                  -ms-flex-wrap: wrap;
+                  flex-wrap: wrap;
+                  margin-right: -15px;
+                  margin-left: -15px;
+                justify-content: space-around;
+              }
+                .footer-bottom address {
+                  text-align: left;
+              }
+              }
+              @media (max-width: 991px){
+                  .footer-col-left .row {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -ms-flex-wrap: wrap;
+                    flex-wrap: wrap;
+                }
+                .col-12.col-md-12.footer-col-left {
+      margin-top: 10px !important;
+  }
+
+                  .footer-col-left .col-footer:nth-child(4) {
+                    order: 5;
+                }
+                .footer-col-left .col-footer:nth-child(6) {
+                    order: 6;
+                }
+                .footer-col-left .col-footer:nth-child(3) {
+                    /* order: 4; */
+                }
+                .footer-col-left .row .col-12 {
+                    width: 100%;
+                }
+                  ul.payment-methods {
+                    padding: 0;
+                }
+                ul.panel {
+                  display: none;
+                }
+                ul.panel.show {
+                  display: block !important;
+
+                }
+                .footer-top .col-footer .dropdow-mb {
+                  border-bottom: 1px solid #ccc;
+                  position: relative;
+                }
+                ul.panel.show {
+                  padding-top: 10px;
+                }
+                .payment-methods li:last-child {
+                  margin-right: 0;
+                }
+                .site-footer .col-footer .dropdow-mb:after {
+                  content: "\f107";
+                  font-family: FontAwesome;
+                  font-weight: 500;
+                  font-size: 17px;
+                  text-rendering: auto;
+                  -webkit-font-smoothing: antialiased;
+                  -moz-osx-font-smoothing: grayscale;
+                  display: block;
+                  cursor: pointer;
+                  margin: 0;
+                  padding: 0;
+                  background: none;
+                  -webkit-transition: transform .3s linear;
+                  -moz-transition: transform .3s linear;
+                  -ms-transition: transform .3s linear;
+                  -o-transition: transform .3s linear;
+                  transition: transform .3s linear;
+                  position: absolute;
+                  right: 0;
+                  top: 1px;
+                }
+                .site-footer .col-footer .dropdow-mb.active:after {
+                  -moz-transform: rotate(180deg);
+                  -o-transform: rotate(180deg);
+                  -ms-transform: rotate(180deg);
+                  -webkit-transform: rotate(180deg);
+                  transform: rotate(180deg);
+                }
+                .site-footer .col-footer .dropdow-mb {
+                  padding-bottom: 13px;
+                  position: relative;
+                  padding-right: 15px;
+                      margin: 0;
+                }
+              }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+
+
+    var acc = document.getElementsByClassName("dropdow-mb");
+    var panel = document.getElementsByClassName('panel');
+
+    for (var i = 0; i < acc.length; i++) {
+      acc[i].onclick = function() {
+        var setClasses = !this.classList.contains('active');
+        setClass(acc, 'active', 'remove');
+        setClass(panel, 'show', 'remove');
+
+        if (setClasses) {
+          this.classList.toggle("active");
+          this.nextElementSibling.classList.toggle("show");
+        }
+      }
+    }
+
+    function setClass(els, className, fnName) {
+      for (var i = 0; i < els.length; i++) {
+        els[i].classList[fnName](className);
+      }
+    }
+
+  });
+</script>
+{% schema %}
+{
+  "name": "Footer Default",
+"max_blocks": 8,
+"blocks": [
+  {
+      "type": "footer_link",
+      "name": "Footer Link",
+      "settings": [
+    {
+          "type": "text",
+          "id": "footer_title",
+          "label": "Footer Title"
+        },
+    {
+          "type": "link_list",
+          "id": "footer_linklist",
+          "label": "Footer Link",
+          "default": "footer"
+        }
+      ]
+    },
+  {
+      "type": "footer_news",
+      "name": "Footer Newsletter",
+      "settings": [
+
+      ]
+    },
+   {
+      "type": "footer_pay",
+      "name": "Footer Payment icons",
+      "settings": [
+
+      ]
+    },
+  {
+      "type": "footer_social",
+      "name": "Footer Social media",
+      "settings": [
+
+      ]
+    },
+  {
+      "type": "footer_text",
+      "name": "Footer Description",
+      "settings": [
+       {
+          "type": "text",
+          "id": "footer_title",
+          "label": "Footer Title"
+        },
+        {
+          "type": "textarea",
+          "id": "footer_desc",
+          "label": "Footer Description"
+        }
+      ]
+    }
+],
+  "settings": [
+  {
+      "type": "header",
+      "content": "Footer Background"
+    },
+     {
+      "type": "image_picker",
+      "id": "footer-logo",
+     "label": "footer logo image"
+    },
+    {
+      "type": "radio",
+      "id": "bg_footer_img",
+      "label": "Background image",
+      "options": [
+        {
+          "value": "bg-footer",
+          "label": "Uploaded image"
+        },
+        {
+          "value": "none",
+          "label": "Solid color (no image)"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "bg_footer_color",
+      "label": "Background color",
+      "default": "#232323"
+    },
+    {
+      "type": "radio",
+      "id": "bg_footer_position_x",
+      "label": "Horizontal position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "radio",
+      "id": "bg_footer_position_y",
+      "label": "Vertical position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "bg_footer_repeat",
+      "label": "Repeat",
+      "options": [
+        {
+          "value": "repeat",
+          "label": "Horizontally and vertically"
+        },
+        {
+          "value": "repeat-x",
+          "label": "Horizontally only"
+        },
+        {
+          "value": "repeat-y",
+          "label": "Vertically only"
+        },
+        {
+          "value": "no-repeat",
+          "label": "Don't repeat"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "bg_footer_attachment",
+      "label": "Attachment",
+      "options": [
+        {
+          "value": "scroll",
+          "label": "Scroll"
+        },
+        {
+          "value": "fixed",
+          "label": "Fixed"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "bg-footer-img",
+     "label": "Upload a new image"
+    },
+    {
+      "type": "header",
+      "content": "Text Color"
+    },
+    {
+      "type": "color",
+      "id": "footer_title_color",
+      "label": "Footer Title",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "footer_link_color",
+      "label": "Footer Link",
+      "default": "#178dc9"
+    },
+  {
+      "type": "color",
+      "id": "footer_link_hover_color",
+      "label": "Footer Link Hover",
+      "default": "#178dc9"
+    },
+  {
+      "type": "color",
+      "id": "bg_footer_line_color",
+      "label": "Footer Line Color",
+      "default": "#282828"
+    },
+
+  {
+      "type": "header",
+      "content": "Newsletter"
+    },
+    {
+      "type": "checkbox",
+      "id": "footer_newsletter_enable",
+      "label": "Show newsletter signup?",
+      "default": false
+    },
+  {
+      "type": "text",
+      "id": "footer_newsletter_title",
+      "label": "Footer Newsletter Title"
+    },
+      {
+          "type": "textarea",
+          "id": "footer_newsletter_des",
+          "label": "Footer Newsletter Descriptions"
+      },
+  {
+      "type": "color",
+      "id": "bg_newsletter_color",
+      "label": "Newsletter Input Background Color",
+      "default": "#fff"
+    },
+  {
+      "type": "color",
+      "id": "newsletter_color",
+      "label": "Newsletter Input Color",
+      "default": "#717171"
+    },
+  {
+      "type": "color",
+      "id": "newsletter_border_color",
+      "label": "Newsletter Input Border Color",
+      "default": "#3b3b3b"
+    },
+  {
+      "type": "color",
+      "id": "bg_newsletter_button_color",
+      "label": "Background and Border Newsletter Button Color",
+      "default": "#3b3b3b"
+    },
+  {
+      "type": "color",
+      "id": "newsletter_button_color",
+      "label": "Newsletter Button Color",
+      "default": "#fff"
+    },
+
+  {
+      "type": "header",
+      "content": "Social"
+    },
+    {
+      "type": "checkbox",
+      "id": "footer_social_enable",
+      "label": "Show social media links?",
+      "default": false
+    },
+  {
+      "type": "text",
+      "id": "footer_social_title",
+      "label": "Footer Social Title"
+    },
+  {
+      "type": "textarea",
+      "id": "fb_like_code_text",
+      "label": "Facebook Like Text",
+    "default": "<span>LIKE US <i>on</i> FACEBOOK</span>"
+    },
+  {
+      "type": "textarea",
+      "id": "fb_like_code",
+      "label": "Facebook Like Code"
+    },
+  {
+      "type": "color",
+      "id": "social_icon_color",
+      "label": "Social Icons Color",
+      "default": "#141414"
+    },
+  {
+      "type": "color",
+      "id": "social_icon_bg_color",
+      "label": "Social Icons Background Color",
+      "default": "#fff"
+    },
+
+    {
+      "type": "header",
+      "content": "Footer Address"
+    },
+  {
+      "type": "color",
+      "id": "bg_footer_bottom_color",
+      "label": "Background Fotter Bottom",
+      "default": "#000"
+    },
+  {
+      "type": "color",
+      "id": "footer_bottom_color",
+      "label": "Fotter Bottom Color",
+      "default": "#cbcbcb"
+    },
+    {
+      "type": "textarea",
+      "id": "footer_address_code",
+      "label": "Footer Address Code"
+    },
+
+    {
+      "type": "header",
+      "content": "Footer Payment"
+    },
+   {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": "Show payment icons",
+      "default": false
+    },
+ {
+      "type": "header",
+      "content": "Display payment icons for"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_visa",
+      "label": "Visa"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_visa_electron",
+      "label": "Visa Electron"
+    },
+  {
+      "type": "checkbox",
+      "id": "payment_display_american_express",
+      "label": "American Express"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_master",
+      "label": "Master"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_maestro",
+      "label": "Maestro"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_solo",
+      "label": "Solo"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_paypal",
+      "label": "Paypal"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_amazon_payments",
+      "label": "Amazon Payments"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_apple_pay",
+      "label": "Apple Pay"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_bitcoin",
+      "label": "Bitcoin"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_cirrus",
+      "label": "Cirrus"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_dankort",
+      "label": "Dankort"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_diners_club",
+      "label": "Diners Club"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_discover",
+      "label": "Discover"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_dogecoin",
+      "label": "Dogecoin"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_dwolla",
+      "label": "Dwolla"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_forbrugsforeningen",
+      "label": "Forbrugsforeningen"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_interac",
+      "label": "Interac"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_jcb",
+      "label": "JCB"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_litecoin",
+      "label": "Litecoin"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_display_stripe",
+      "label": "Stripe"
+    },
+  {
+      "type": "checkbox",
+      "id": "payment_display_sage",
+      "label": "Sage"
+    },
+  {
+      "type": "checkbox",
+      "id": "payment_display_wallet",
+      "label": "Google Wallet"
+    },
+    {
+        "type": "checkbox",
+        "id": "payment_display_western",
+        "label": "Western Union"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_visa",
+      "label": "Visa image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_visa_electron",
+      "label": "Visa Electron image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_master",
+      "label": "Master image"
+    },
+  {
+      "type": "image_picker",
+      "id": "icon_american_express",
+      "label": "American Express image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_maestro",
+      "label": "Maestro image"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "icon_solo",
+      "label": "Solo image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_paypal",
+      "label": "Paypal image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_amazon_payments",
+      "label": "Amazon Payments image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_apple_pay",
+      "label": "Apple Pay image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_bitcoin",
+      "label": "Bitcoin image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_cirrus",
+      "label": "Cirrus image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_dankort",
+      "label": "Dankort image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_diners_club",
+      "label": "Diners Club image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_discover",
+      "label": "Discover image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_dogecoin",
+      "label": "Dogecoin image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_dwolla",
+      "label": "Dwolla image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_forbrugsforeningen",
+      "label": "Forbrugsforeningen image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_interac",
+      "label": "Interac image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_jcb",
+      "label": "JCB image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_litecoin",
+      "label": "Litecoin image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_stripe",
+      "label": "Stripe image"
+    },
+  {
+      "type": "image_picker",
+      "id": "icon_sage",
+      "label": "Sage image"
+    },
+  {
+      "type": "image_picker",
+      "id": "icon_wallet",
+      "label": "Google Wallet image"
+    },
+    {
+        "type": "image_picker",
+        "id": "icon_western",
+        "label": "Western Union image"
+    }
+  ]
+}
+{% endschema %}
