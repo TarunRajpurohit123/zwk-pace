@@ -3895,10 +3895,10 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
   display: block;
 }
 
-.t-relatv{
+.t-relatv {
   position: relative;
 }
-.wcld-loaders{
+.wcld-loaders {
   position: absolute;
   top: 0;
   left: 0;
@@ -3908,9 +3908,12 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
   z-index: 99;
   display: block !important;
 }
-.multicolumn-list__item--uniq{
-  width:10% !important;
+.multicolumn-list__item--uniq {
+  width: 10% !important;
 }
-.muticol .multicolumn-card__info h3{
+.muticol .multicolumn-card__info h3 {
   font-size: 24px !important;
+}
+.muticol .multicolumn-card__info .rte p {
+  font-size: 12px;
 }
