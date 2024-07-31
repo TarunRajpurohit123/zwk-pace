@@ -3886,10 +3886,11 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
 }
 
 .b2b-signup-link {
-  color: red !important;
+  color: black !important;
   letter-spacing: normal !important;
   font-size: 11px !important;
   font-weight: bold;
+  display: flex;
 }
 .CC-Price {
   display: block;
