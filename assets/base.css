@@ -3889,7 +3889,7 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
   color: black !important;
   letter-spacing: normal !important;
   font-size: 12px !important;
-  font-weight: bold;
+  font-weight: 400 !important;
   display: flex;
 }
 .blur-opacity-card {
