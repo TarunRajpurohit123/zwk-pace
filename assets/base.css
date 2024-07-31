@@ -3892,6 +3892,12 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
   font-weight: bold;
   display: flex !important;
 }
+.b2b-signup-link > p {
+  color: red !important;
+  letter-spacing: normal !important;
+  font-size: 11px !important;
+  font-weight: bold;
+}
 .CC-Price {
   display: block;
 }
