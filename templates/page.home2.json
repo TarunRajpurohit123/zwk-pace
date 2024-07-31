@@ -153,6 +153,65 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
+    "6085a1a4-a25d-4282-9182-6ec6ff471f21": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-1": {
+          "type": "column",
+          "settings": {
+            "top_text": "find",
+            "title": "Unique &amp; Modern <br>Products",
+            "text": "<p>A considered line of versatile products designed to work in every room<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-2": {
+          "type": "column",
+          "settings": {
+            "top_text": "buy",
+            "title": "Expertly Vetted<br> Quality",
+            "text": "<p>Beautiful, durable materials selected for a lover impact and longer lifespan<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-3": {
+          "type": "column",
+          "settings": {
+            "top_text": "Collect",
+            "title": "Delivery At Your<br> door",
+            "text": "<p>Support, guidance, and original content to help you organize with intention<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-1",
+        "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-2",
+        "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-3"
+      ],
+      "custom_css": [
+        "@media screen and (max-width: 749px) {{display: none; }}"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "accent-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "banner_row_kcRDMd": {
       "type": "Banner-Row",
       "disabled": true,
@@ -366,65 +425,6 @@
         "enable_quick_add": false,
         "padding_top": 20,
         "padding_bottom": 20
-      }
-    },
-    "6085a1a4-a25d-4282-9182-6ec6ff471f21": {
-      "type": "multicolumn",
-      "blocks": {
-        "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-1": {
-          "type": "column",
-          "settings": {
-            "top_text": "find",
-            "title": "Unique &amp; Modern <br>Products",
-            "text": "<p>A considered line of versatile products designed to work in every room<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-2": {
-          "type": "column",
-          "settings": {
-            "top_text": "buy",
-            "title": "Expertly Vetted<br> Quality",
-            "text": "<p>Beautiful, durable materials selected for a lover impact and longer lifespan<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-3": {
-          "type": "column",
-          "settings": {
-            "top_text": "Collect",
-            "title": "Delivery At Your<br> door",
-            "text": "<p>Support, guidance, and original content to help you organize with intention<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-1",
-        "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-2",
-        "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-3"
-      ],
-      "custom_css": [
-        "@media screen and (max-width: 749px) {{display: none; }}"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "accent-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "new_arrivals_XDhh6b": {
@@ -674,12 +674,12 @@
   },
   "order": [
     "38f03622-ecae-4ea4-a7af-bf0a15d7c248",
+    "6085a1a4-a25d-4282-9182-6ec6ff471f21",
     "banner_row_kcRDMd",
     "category_list_product_slider_BpAwzq",
     "60a9329a-3f2b-4f20-a4e6-189d962468e6",
     "multicolumn_B6GWQj",
     "2e411384-d0f6-47f2-b5c1-aabed33e49ca",
-    "6085a1a4-a25d-4282-9182-6ec6ff471f21",
     "new_arrivals_XDhh6b",
     "622f00a0-fc35-4089-b581-ff30cb98bf38",
     "image_banner_eKxQ9w",
