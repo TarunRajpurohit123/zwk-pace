@@ -437,31 +437,6 @@
                 </div>
               </div>
               {%- when 'quantity_selector' -%}
-              {% form 'product', product %}
-                {% for variant in product.variants %}
-                  <div class="variant-selector">
-                    <input
-                      type="checkbox"
-                      name="variant_ids[]"
-                      value="{{ variant.id }}"
-                      id="variant-{{ variant.id }}">
-                    <label for="variant-{{ variant.id }}">{{ variant.title }}</label>
-
-                    <div class="quantity-selector">
-                      <label for="quantity-{{ variant.id }}">Quantity:</label>
-                      <input
-                        type="number"
-                        id="quantity-{{ variant.id }}"
-                        name="quantities[{{ variant.id }}]"
-                        value="1"
-                        min="1"
-                        disabled>
-                    </div>
-                  </div>
-                {% endfor %}
-
-                <button type="submit" name="add">Add to Cart</button>
-              {% endform %}
 
 
               <div class="left-pdp-space qtr-block">
