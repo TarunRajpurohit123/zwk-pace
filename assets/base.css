@@ -3917,3 +3917,6 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
 .muticol .multicolumn-card__info .rte p {
   font-size: 12px;
 }
+.b2b_mc-para {
+  color: #a8a8a8 !important;
+}
