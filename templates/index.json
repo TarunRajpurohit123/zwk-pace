@@ -155,6 +155,7 @@
     },
     "banner_row_kcRDMd": {
       "type": "Banner-Row",
+      "disabled": true,
       "settings": {
         "bannerRowBackground": "black",
         "bannerRowHeight": "305",
