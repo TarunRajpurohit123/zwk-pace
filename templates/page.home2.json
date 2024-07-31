@@ -185,12 +185,23 @@
             "link_label": "",
             "link": ""
           }
+        },
+        "column_B6Ye9N": {
+          "type": "column",
+          "settings": {
+            "top_text": "Return",
+            "title": "Fairly and free exchange",
+            "text": "<p>Support, guidance, and original content to help you organize with intention<\/p>",
+            "link_label": "",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-1",
         "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-2",
-        "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-3"
+        "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-3",
+        "column_B6Ye9N"
       ],
       "custom_css": [
         "@media screen and (max-width: 749px) {{display: none; }}"
