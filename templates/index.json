@@ -375,8 +375,8 @@
         "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-1": {
           "type": "column",
           "settings": {
-            "top_text": "find",
-            "title": "Unique &amp; Modern <br>Products",
+            "top_text": "FIND",
+            "title": "Unique &amp; Modern\nProducts",
             "text": "<p>A considered line of versatile products designed to work in every room<\/p>",
             "link_label": "",
             "link": ""
@@ -385,7 +385,7 @@
         "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-2": {
           "type": "column",
           "settings": {
-            "top_text": "buy",
+            "top_text": "BUY",
             "title": "Expertly Vetted<br> Quality",
             "text": "<p>Beautiful, durable materials selected for a lover impact and longer lifespan<\/p>",
             "link_label": "",
@@ -395,7 +395,7 @@
         "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-3": {
           "type": "column",
           "settings": {
-            "top_text": "Collect",
+            "top_text": "COLLECT",
             "title": "Delivery At Your<br> Door",
             "text": "<p>Support, guidance, and original content to help you organize with intention<\/p>",
             "link_label": "",

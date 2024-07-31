@@ -159,8 +159,8 @@
         "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-1": {
           "type": "column",
           "settings": {
-            "top_text": "find",
-            "title": "Unique &amp; Modern <br>Products",
+            "top_text": "Find",
+            "title": "Unique &amp; modern \nproducts",
             "text": "<p>A considered line of versatile products designed to work in every room<\/p>",
             "link_label": "",
             "link": ""
@@ -169,8 +169,8 @@
         "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-2": {
           "type": "column",
           "settings": {
-            "top_text": "buy",
-            "title": "Expertly Vetted<br> Quality",
+            "top_text": "Buy",
+            "title": "Expertly vetted \nquality",
             "text": "<p>Beautiful, durable materials selected for a lover impact and longer lifespan<\/p>",
             "link_label": "",
             "link": ""
@@ -180,7 +180,17 @@
           "type": "column",
           "settings": {
             "top_text": "Collect",
-            "title": "Delivery At Your<br> door",
+            "title": "Delivery at your \ndoor",
+            "text": "<p>Support, guidance, and original content to help you organize with intention<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_B6Ye9N": {
+          "type": "column",
+          "settings": {
+            "top_text": "Return",
+            "title": "Fairly and free exchange",
             "text": "<p>Support, guidance, and original content to help you organize with intention<\/p>",
             "link_label": "",
             "link": ""
@@ -190,7 +200,8 @@
       "block_order": [
         "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-1",
         "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-2",
-        "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-3"
+        "template--16200698069049__6085a1a4-a25d-4282-9182-6ec6ff471f21-column-3",
+        "column_B6Ye9N"
       ],
       "custom_css": [
         "@media screen and (max-width: 749px) {{display: none; }}"
