@@ -3894,7 +3894,7 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
 }
 .main-p-sl {
   display: inline-block !important;
-  margin-left: 8px !important;
+  margin-left: 1px !important;
   letter-spacing: 1px !important;
 }
 #b2b-card-prod-slid-link {
