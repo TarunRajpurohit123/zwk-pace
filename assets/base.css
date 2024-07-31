@@ -3890,6 +3890,7 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
   letter-spacing: normal !important;
   font-size: 11px !important;
   font-weight: bold;
+  display: flex !important;
 }
 .CC-Price {
   display: block;
