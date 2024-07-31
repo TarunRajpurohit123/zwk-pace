@@ -190,7 +190,9 @@ Usage:
             {% endif %}
             {% unless customer %}
               {% if request.path == "/pages/zwankee-global" %}
-                <p class="b2b-signup-link" style="letter-spacing: normal !important;">{% render 'lock-icon' %}Sign up for wholesaleprice</p>
+                <p class="b2b-signup-link" style="letter-spacing: normal !important;">{% render 'lock-icon' %}
+                  <span id="b2b-card-prod-slid-link">Sign up for wholesaleprice</span>
+                </p>
               {% endif %}
             {% endunless %}
           </div>
