@@ -196,7 +196,7 @@
         "@media screen and (max-width: 749px) {{display: none; }}"
       ],
       "settings": {
-        "mcmt": "40",
+        "mcmt": "55",
         "title": "",
         "heading_size": "h1",
         "image_width": "full",
