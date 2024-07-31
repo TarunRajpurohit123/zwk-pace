@@ -208,6 +208,7 @@
       ],
       "settings": {
         "mcmt": "55",
+        "mul_bgColor": "#f7f7f7",
         "title": "",
         "heading_size": "h1",
         "image_width": "full",
@@ -405,6 +406,7 @@
       "disabled": true,
       "settings": {
         "mcmt": "",
+        "mul_bgColor": "",
         "title": "",
         "heading_size": "h1",
         "image_width": "full",
