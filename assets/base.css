@@ -3892,6 +3892,10 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
   font-weight: bold;
   display: flex;
 }
+.blur-opacity-card {
+  background-color: #f7f7f7 !important;
+  opacity: 30% !important;
+}
 .CC-Price {
   display: block;
 }
