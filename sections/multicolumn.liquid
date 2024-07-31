@@ -133,7 +133,7 @@
                   <h3 class="inline-richtext" style="color:{{block.settings.title_color}}">{{ block.settings.title }}</h3>
                 {%- endif -%}
                 {%- if block.settings.text != blank -%}
-                  <div class="rte" style="padding:0 !important;color:{{block.settings.title_color}}">{{ block.settings.text }}</div>
+                  <div class="rte" style="padding:0 !important"><p style="color:{{ block.settings.title_color }}">{{ block.settings.text }}</p></div>
                 {%- endif -%}
                 {%- if block.settings.link_label != blank -%}
                   <a
