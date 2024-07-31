@@ -172,9 +172,9 @@
           "type": "column",
           "settings": {
             "top_text": "Buy",
-            "top_text_color": "",
+            "top_text_color": "#a8a8a8",
             "title": "Expertly vetted \nquality",
-            "title_color": "",
+            "title_color": "#0c0c0c",
             "text": "<p>Beautiful, durable materials selected for a lover impact and longer lifespan<\/p>",
             "link_label": "",
             "link": ""
@@ -184,9 +184,9 @@
           "type": "column",
           "settings": {
             "top_text": "Collect",
-            "top_text_color": "",
+            "top_text_color": "#a8a8a8",
             "title": "Delivery at your \ndoor",
-            "title_color": "",
+            "title_color": "#0c0c0c",
             "text": "<p>Support, guidance, and original content to help you organize with intention<\/p>",
             "link_label": "",
             "link": ""
@@ -196,9 +196,9 @@
           "type": "column",
           "settings": {
             "top_text": "Return",
-            "top_text_color": "",
+            "top_text_color": "#a8a8a8",
             "title": "Fairly and free exchange",
-            "title_color": "",
+            "title_color": "#0c0c0c",
             "text": "<p>Support, guidance, and original content to help you organize with intention<\/p>",
             "link_label": "",
             "link": ""
@@ -216,7 +216,7 @@
       ],
       "settings": {
         "mcmt": "55",
-        "mul_bgColor": "#f7f7f7",
+        "mul_bgColor": "#ffffff",
         "title": "",
         "heading_size": "h1",
         "image_width": "full",
