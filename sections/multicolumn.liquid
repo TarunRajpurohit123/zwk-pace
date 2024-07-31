@@ -35,7 +35,7 @@
     {% endif %}>
     {%- unless section.settings.title == blank -%}
       <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin">
-        <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+        <h2 class="title inline-richtext {{ section.settings.heading_size }}" style="color:{{ block.settings.title_color }}">
           {{ section.settings.title }}
         </h2>
         {%- if section.settings.button_label != blank and show_mobile_slider -%}
@@ -127,7 +127,7 @@
               {%- endif -%}
               <div class="multicolumn-card__info">
                 {%- if block.settings.top_text != blank -%}
-                  <p class="top-text-muti desk-left-block">{{ block.settings.top_text }}</p>
+                  <p class="top-text-muti desk-left-block" style="color:{{ block.settings.top_text_color }}">{{ block.settings.top_text }}</p>
                 {%- endif -%}
                 {%- if block.settings.title != blank -%}
                   <h3 class="inline-richtext">{{ block.settings.title }}</h3>
@@ -388,12 +388,20 @@
             "label": "Top Text"
           },
           {
+            "type": "color",
+            "id": "top_text_color",
+            "label": "Top Text Color"
+          },
+          {
             "type": "html",
             "id": "title",
             "default": "Column",
             "label": "t:sections.multicolumn.blocks.column.settings.title.label"
-          },
-          {
+          }, {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title Color"
+          }, {
             "type": "richtext",
             "id": "text",
             "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
