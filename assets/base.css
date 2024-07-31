@@ -3887,10 +3887,14 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
 
 .b2b-signup-link {
   color: black !important;
-  letter-spacing: normal !important;
+  /* letter-spacing: normal !important; */
   font-size: 12px !important;
   font-weight: 400 !important;
   display: flex;
+}
+#main-p-sl {
+  display: inline-block !important;
+  margin-left: 5px !important;
 }
 .b2b-signup-link2 {
   font-size: 16px !important;
