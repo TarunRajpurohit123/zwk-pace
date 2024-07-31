@@ -3908,3 +3908,6 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
   z-index: 99;
   display: block !important;
 }
+.multicolumn-list__item--uniq{
+  width:10% !important;
+}
