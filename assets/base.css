@@ -3891,6 +3891,6 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
   font-size: 13px !important;
   font-weight: bold;
 }
-.CC-Link {
-  display: none;
+.CC-Price {
+  display: block;
 }

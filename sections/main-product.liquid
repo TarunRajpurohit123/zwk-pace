@@ -119,12 +119,54 @@
               {% else %}
                 {% endif %}">
 
-                {% unless customer %}
-                  <p class="b2b-signup-link" id="b2b-signup-link">
-                    {% render 'lock-icon' %} Sign Up For Wholesale Price</p>
-                {% endunless %}
+                //bb section
+                <div class="BB-section" id="BB-section">
+                  {% unless customer %}
+                    <p class="b2b-signup-link" id="b2b-signup-link">
+                      {% render 'lock-icon' %} Sign Up For Wholesale Price</p>
+                  {% endunless %}
 
-                {% if customer %}
+                  {% if customer %}
+                    <div
+                      class="no-js-hidden"
+                      id="price-{{ section.id }}"
+                      role="status"
+                      {{ block.shopify_attributes }}>
+                      {%- render 'price'
+                        , product: product,
+                        use_variant: true,
+                        show_badges: true,
+                        price_class: 'price--large' -%}
+                    </div>
+                    {%- if product.quantity_price_breaks_configured? -%}
+                      <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
+                        <span>{{ 'products.product.volume_pricing.note' | t }}</span>
+                      </div>
+                    {%- endif -%}
+                    <div class="product__tax caption rte">
+                      {%- if cart.taxes_included -%}
+                        {{ 'products.product.include_taxes' | t }}
+                      {%- endif -%}
+                      {%- if shop.shipping_policy.body != blank -%}
+                        {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                      {%- endif -%}
+                    </div>
+                    <div {{ block.shopify_attributes }}>
+                      {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
+                      {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
+                        <input
+                          type="hidden"
+                          name="id"
+                          value="{{ product.selected_or_first_available_variant.id }}">
+                        {{ form | payment_terms }}
+                      {%- endform -%}
+                    </div>
+                    <span class="small-textblock-price">Inclusive of all taxes</span>
+                  {% endif %}
+                </div>
+                //section bb end
+                //cc section
+                <div class="CC-section" id="CC-section">
                   <div
                     class="no-js-hidden"
                     id="price-{{ section.id }}"
@@ -160,7 +202,9 @@
                     {%- endform -%}
                   </div>
                   <span class="small-textblock-price">Inclusive of all taxes</span>
-                {% endif %}
+                </div>
+                //cc section end
+
               </div>
 
               {%- when 'inventory' -%}
@@ -290,10 +334,10 @@
               <div class="securechecckout" style="margin-top:20px;text-align: center; {% if block.settings.show_securePayment %}display:none;{% endif %}">
                 <p style="margin-bottom:10px;">100% secure payments powered by:</p>
                 <ul class="payment-methods" style="
-                                                                                                                                                                                      list-style:none;display:flex;    justify-content: center;
-                                                                                                                                                                                      padding: 0;
-                                                                                                                                                                                      flex-wrap: wrap;
-                                                                                                                                                                                    ">
+                                                                                                                                                                                                                                                                                                              list-style:none;display:flex;    justify-content: center;
+                                                                                                                                                                                                                                                                                                              padding: 0;
+                                                                                                                                                                                                                                                                                                              flex-wrap: wrap;
+                                                                                                                                                                                                                                                                                                            ">
                   <li>
                     <img
                       data-src="https://cdn.shopify.com/s/files/1/0588/3723/7875/files/Visa_Classic_x32_0964513f-4d51-47b2-a150-b80e8ec61b4f.png"
@@ -915,13 +959,13 @@
 
 
 
-        const hiddenInput = document.querySelector('#        {{ product_form_id }} input[name="id"]');
+        const hiddenInput = document.querySelector('#              {{ product_form_id }} input[name="id"]');
         const noScriptInputWrapper = document.createElement('div');
-        const variantSwitcher = document.querySelector('variant-radios[data-section="        {{ section.id }} "]') || document.querySelector('variant-selects[data-section="        {{ section.id }} "]');
-        noScriptInputWrapper.innerHTML = document.querySelector('.product-form__noscript-wrapper-        {{ section.id }}').textContent;
+        const variantSwitcher = document.querySelector('variant-radios[data-section="              {{ section.id }} "]') || document.querySelector('variant-selects[data-section="              {{ section.id }} "]');
+        noScriptInputWrapper.innerHTML = document.querySelector('.product-form__noscript-wrapper-              {{ section.id }}').textContent;
         variantSwitcher.outerHTML = noScriptInputWrapper.outerHTML;
 
-        document.querySelector('#Variants-        {{ section.id }}').addEventListener('change', function(event) {
+        document.querySelector('#Variants-              {{ section.id }}').addEventListener('change', function(event) {
           hiddenInput.value = event.currentTarget.value;
         });
       });
@@ -938,8 +982,8 @@
     <script type="application/ld+json">
       {
       "@context": "http://schema.org/",
-                                                        "@type": "Product",
-                                                        "name": {{ product.title | json }},
+                                                                                            "@type": "Product",
+                                                                                            "name": {{ product.title | json }},
       "url": {{ request.origin | append: product.url | json }},
       {% if seo_media -%}
         "image": [
@@ -952,7 +996,7 @@
       {%- endif %}
       "brand": {
       "@type": "Brand",
-                                                          "name": {{ product.vendor | json }}
+                                                                                              "name": {{ product.vendor | json }}
       },
       "offers": [
       {%- for variant in product.variants -%}
@@ -994,12 +1038,16 @@
 
 <script>
   window.addEventListener('load', () => {
-    let b2bSignupLink = document.getElementById("b2b-signup-link");
     let currentType = localStorage.getItem("currentType");
 
-    b2bSignupLink.classList.add(`${currentType}-Link`);
-
-    console.log("currentType", currentType);
+    if (currentType == "CC") {
+      document.getElementById("BB-section").style.display = "none";
+      document.getElementById("CC-section").style.display = "block";
+    }
+    if (currentType == "BB") {
+      document.getElementById("BB-section").style.display = "block";
+      document.getElementById("CC-section").style.display = "none";
+    }
 
   })
 </script>
