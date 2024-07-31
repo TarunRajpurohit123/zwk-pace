@@ -3892,6 +3892,9 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
   font-weight: 400 !important;
   display: flex;
 }
+.b2b-signup-link2 {
+  font-size: 16px !important;
+}
 .blur-opacity-card {
   background-color: #f7f7f76b !important;
   backdrop-filter: blur(5px) !important;
