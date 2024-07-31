@@ -297,7 +297,9 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/Essentials.jpg",
             "top_text": "",
+            "top_text_color": "",
             "title": "",
+            "title_color": "",
             "text": "",
             "link_label": "",
             "link": "shopify:\/\/collections\/flat-999"
@@ -308,7 +310,9 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/Exclusive.jpg",
             "top_text": "",
+            "top_text_color": "",
             "title": "",
+            "title_color": "",
             "text": "",
             "link_label": "",
             "link": "shopify:\/\/collections\/flat-1999"
@@ -319,7 +323,9 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/Background.jpg",
             "top_text": "",
+            "top_text_color": "",
             "title": "",
+            "title_color": "",
             "text": "",
             "link_label": "",
             "link": "shopify:\/\/collections\/flat-2999"
@@ -334,6 +340,7 @@
       "disabled": true,
       "settings": {
         "mcmt": "",
+        "mul_bgColor": "",
         "title": "",
         "heading_size": "h1",
         "image_width": "full",
@@ -376,7 +383,9 @@
           "type": "column",
           "settings": {
             "top_text": "FIND",
+            "top_text_color": "",
             "title": "Unique &amp; Modern\nProducts",
+            "title_color": "",
             "text": "<p>A considered line of versatile products designed to work in every room<\/p>",
             "link_label": "",
             "link": ""
@@ -386,7 +395,9 @@
           "type": "column",
           "settings": {
             "top_text": "BUY",
+            "top_text_color": "",
             "title": "Expertly Vetted<br> Quality",
+            "title_color": "",
             "text": "<p>Beautiful, durable materials selected for a lover impact and longer lifespan<\/p>",
             "link_label": "",
             "link": ""
@@ -396,7 +407,9 @@
           "type": "column",
           "settings": {
             "top_text": "COLLECT",
+            "top_text_color": "",
             "title": "Delivery At Your<br> Door",
+            "title_color": "",
             "text": "<p>Support, guidance, and original content to help you organize with intention<\/p>",
             "link_label": "",
             "link": ""
@@ -413,6 +426,7 @@
       ],
       "settings": {
         "mcmt": "",
+        "mul_bgColor": "",
         "title": "",
         "heading_size": "h1",
         "image_width": "full",
@@ -530,7 +544,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Bulk BUY",
-            "button_link_1": "shopify:\/\/pages\/bussiness",
+            "button_link_1": "shopify:\/\/pages\/zwankee-global",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
