@@ -14,19 +14,21 @@
   }
 {%- endstyle -%}
 <script defer>
-  const currentType = localStorage.getItem("currentType");
-  const bbLogin = document.getElementById("BB-login")
-  const ccLogin = document.getElementById("CC-login");
-  bbLogin.style.display="none";
-  bbLogin.style.display="none";
-  if(currentType == "BB"){
-    bbLogin.style.display = "block";
-    ccLogin.style.display = "none";
-  }
-  if(currentType == "CC"){
-    bbLogin.style.display = "none";
-    ccLogin.style.display = "block";
-  }
+  window.addEventListener("load",()=>{
+    const currentType = localStorage.getItem("currentType");
+    const bbLogin = document.getElementById("BB-login")
+    const ccLogin = document.getElementById("CC-login");
+    bbLogin.style.display="none";
+    bbLogin.style.display="none";
+    if(currentType == "BB"){
+      bbLogin.style.display = "block";
+      ccLogin.style.display = "none";
+    }
+    if(currentType == "CC"){
+      bbLogin.style.display = "none";
+      ccLogin.style.display = "block";
+    }
+  })
 </script>
 <div class="customer-div">
   <div class="left-img-block">
