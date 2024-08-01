@@ -130,7 +130,9 @@
           let inputQ = document.querySelectorAll(".quantity__input");
           inputQ.forEach(input => {
             input.addEventListener('change', () => {
-              window.alert("chn")
+              setTimeout(() => {
+                window.alert("chn")
+              }, 1000)
             }); // Detect changes in quantity input fields
           });
         </script>
