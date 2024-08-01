@@ -134,8 +134,8 @@ class CartItems extends HTMLElement {
         return response.text();
       })
       .then((state) => {
-        console.log("varSatte", state);
         const parsedState = JSON.parse(state);
+        console.log("varSatte", parsedState.total_price);
         const quantityElement =
           document.getElementById(`Quantity-${line}`) ||
           document.getElementById(`Drawer-quantity-${line}`);
