@@ -112,6 +112,9 @@
                 {% if cart == empty %}
                 disabled
                 {% endif %}
+                {% if cart.total_price < 1000000 %}
+                disabled
+               {% endif %}
                 form="cart">
                 {{ 'sections.cart.checkout' | t }}
               </button>
