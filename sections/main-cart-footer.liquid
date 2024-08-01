@@ -104,33 +104,17 @@
                   {{ 'sections.cart.update' | t }}
                 </button>
               </noscript>
-              {% if cart.total_price < 1000000 %}
-                <button
-                  type="submit"
-                  id="checkout"
-                  class="cart__checkout-button button"
-                  name="checkout"
-                  disabled
-                  form="cart">
-                  {{ 'sections.cart.checkout' | t }}-{{ cart.total_price | money_with_currency }}
-                </button>
-              {% endif %}
-
-              {% unless cart.total_price < 1000000 %}
-                <button
-                  type="submit"
-                  id="checkout"
-                  class="cart__checkout-button button"
-                  name="checkout"
-                  {% if cart == empty %}
-                  disabled
-                  {% endif %}
-                  form="cart">
-                  {{ 'sections.cart.checkout' | t }}-{{ cart.total_price | money_with_currency }}
-                </button>
-              {% endunless %}
-
-
+              <button
+                type="submit"
+                id="checkout"
+                class="cart__checkout-button button"
+                name="checkout"
+                {% if cart == empty %}
+                disabled
+                {% endif %}
+                form="cart">
+                {{ 'sections.cart.checkout' | t }}
+              </button>
             </div>
 
             {%- if additional_checkout_buttons -%}
@@ -141,6 +125,11 @@
             {%- endif -%}
           {%- endcase -%}
         {% endfor %}
+
+        <script>
+          let inputQ = document.querySelectorAll(".quantity__input");
+          console.log("inputQ", inputQ)
+        </script>
 
         <div
           id="cart-errors"></div>
