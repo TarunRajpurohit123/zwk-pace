@@ -568,11 +568,6 @@
     }
   </script>
 {%- endif -%}
-<style>
-  #websiteFooter{
-    display: none !important;
-  }
-</style>
 <script>
   let currentURL = window.location.href;
   if(currentURL.includes("global-register")){
@@ -581,7 +576,6 @@
     const websiteFooter = document.getElementById("websiteFooter");
     headerOfWeb.style.display="none";
     annoucebar.style.display="none";
-    websiteFooter.style.display="none !important";
   }
   let items = document.querySelector(".header__inline-menu").querySelectorAll("details");
   console.log(items)
