@@ -10,7 +10,10 @@
 {
   "sections": {
     "hide": {
-      "type": "home-hide"
+      "type": "home-hide",
+      "presets": {
+        "name": "Home Hider"
+      }
     },
     "38f03622-ecae-4ea4-a7af-bf0a15d7c248": {
       "type": "slideshow",
