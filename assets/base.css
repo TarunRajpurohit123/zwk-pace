@@ -3953,6 +3953,6 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
 }
 .signup-absolute {
   position: absolute !important;
-  bottom: -12px !important;
+  bottom: -8px !important;
   z-index: 999 !important;
 }
