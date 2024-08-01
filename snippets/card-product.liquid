@@ -220,15 +220,18 @@ Usage:
 
           {% unless customer %}
             {% if request.path == "/pages/zwankee-global" %}
-              <a href="https://zwankee.com/pages/global-register" id="card-anchor-signup" class="b2b-signup-link b2b-signup-link2">
+              <button id="card-anchor-signup" class="b2b-signup-link b2b-signup-link2">
                  {% render 'lock-icon' %}<span class="main-p-sl" style="letter-spacing:0.5px;">Sign up for wholesaleprice</span>
-              </a>
+              </button>
             {% endif %}
           {% endunless %}
         </div>
         <script>
           const cardAnchorSignup = document.getElementById("card-anchor-signup");
-          cardAnchorSignup.addEventListener("click",(e)=>{e.stopPropagation()})
+          cardAnchorSignup.addEventListener("click",(e)=>{
+            e.stopPropagation();
+            window.location.href="https://zwankee.com/pages/global-register";
+          })
         </script>
         {%- if show_quick_add -%}
           <div class="quick-add no-js-hidden">
