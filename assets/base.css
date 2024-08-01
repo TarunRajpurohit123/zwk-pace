@@ -3941,7 +3941,11 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
 .b2b_mc-para {
   color: #a8a8a8 !important;
 }
-.variant-row-single{
+.bulk-quantity-selector {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.variant-row-single {
   width: 40%;
   display: flex;
   justify-content: space-between;
