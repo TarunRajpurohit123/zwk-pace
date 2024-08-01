@@ -75,10 +75,6 @@
                 class="totals">
                 <h2
                   class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
-                <p>
-                  {% if cart.total_price < 700000 %}Not Done{% endif %}
-                  {% unless cart.total_price < 700000 %}Done{% endunless %}
-                </p>
                 <p
                   class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
               </div>
@@ -115,6 +111,9 @@
                 class="cart__checkout-button button"
                 name="checkout"
                 {% if cart == empty %}
+                disabled
+                {% endif %}
+                {% if cart.total_price < 1000000 %}
                 disabled
                 {% endif %}
                 form="cart">
