@@ -3951,3 +3951,6 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
   margin-top: 0.3rem;
   justify-content: space-between;
 }
+.global-hide {
+  display: none !important;
+}
