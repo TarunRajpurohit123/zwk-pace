@@ -232,7 +232,7 @@
                       },
                       body: JSON.stringify(formData)
                     }).then(response => {
-                      document.getElementById("cart-notification-global").classList.add("animate active");
+                      document.getElementById("cart-notification").classList.add("animate active");
                       return response.json();
                     }).catch((error) => {
                       console.error('Error:', error);
