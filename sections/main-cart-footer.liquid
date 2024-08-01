@@ -126,16 +126,6 @@
           {%- endcase -%}
         {% endfor %}
 
-        <script>
-          let inputQ = document.querySelectorAll(".quantity__input");
-          inputQ.forEach(input => {
-            input.addEventListener('change', () => {
-              setTimeout(() => {
-                window.alert("chn")
-              }, 1000)
-            }); // Detect changes in quantity input fields
-          });
-        </script>
 
         <div
           id="cart-errors"></div>
