@@ -76,7 +76,8 @@
                 <h2
                   class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
                 <p>
-                  {% if cart.total_price < 600000 %}add upto 10000rs{% endif %}
+                  {% if cart.total_price < 600000 %}Not Done{% endif %}
+                  {% unless cart.total_price < 600000 %}Done{% endunless %}
                 </p>
                 <p
                   class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
@@ -150,6 +151,7 @@
     if (! isIE()) 
       return;
     
+
 
 
     const cartSubmitInput = document.createElement('input');
