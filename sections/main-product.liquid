@@ -513,7 +513,7 @@
               {%- when 'quantity_selector' -%}
 
 
-              <div class="left-pdp-space qtr-block global-hide">
+              <div class="left-pdp-space qtr-block" id="qtr-block">
                 <div
                   id="Quantity-Form-{{ section.id }}"
                   class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
@@ -750,7 +750,7 @@
 
               {%- when 'variant_picker' -%}
               {%- unless product.has_only_default_variant -%}
-                <div class="left-pdp-space vp-block global-hide">
+                <div class="left-pdp-space vp-block" id="vp-block">
                   <div class="sizechar-var">
                     <div class="var-pick">
                       {% render 'product-variant-picker'
@@ -783,7 +783,7 @@
                 </div>
               {% endunless %}
               {%- when 'buy_buttons' -%}
-              <div class="left-pdp-space atc-block global-hide">
+              <div class="left-pdp-space atc-block" id="atc-block">
                 {%- render 'buy-buttons'
                   , block: block,
                   product: product,
@@ -965,7 +965,7 @@
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'buy_buttons' -%}
-            <div class="left-pdp-space atc-block global-hide">
+            <div class="left-pdp-space atc-block global-hide" id="atc-block2">
               {%- render 'buy-buttons'
                 , block: block,
                 product: product,
@@ -1131,6 +1131,10 @@
     if (currentType == "BB") {
       document.getElementById("BB-section").style.display = "block";
       document.getElementById("CC-section").style.display = "none";
+      document.getElementById("atc-block").style.display = "none";
+      document.getElementById("atc-block2").style.display = "none";
+      document.getElementById("qtr-block").style.display = "none";
+      document.getElementById("qtr-block").style.display = "none";
       wcldLoaders.classList.remove("wcld-loaders");
     }
   })
