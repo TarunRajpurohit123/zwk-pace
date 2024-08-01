@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "main-register",
+      "type": "main-register-global",
       "custom_css": [
         ".bottom-para a {color: #000000e6;}"
       ],
