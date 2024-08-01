@@ -135,7 +135,16 @@ class CartItems extends HTMLElement {
       })
       .then((state) => {
         const parsedState = JSON.parse(state);
+        const checkoutButton = document.getElementById("checkout");
         console.log("varSatte", parsedState.total_price);
+        if (checkoutButton) {
+          if (parsedState.total_price < 1000000) {
+            checkoutButton.disabled = true;
+          }
+          if (parsedState.total_price > 1000000) {
+            checkoutButton.disabled = false;
+          }
+        }
         const quantityElement =
           document.getElementById(`Quantity-${line}`) ||
           document.getElementById(`Drawer-quantity-${line}`);
