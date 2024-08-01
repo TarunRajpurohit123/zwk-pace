@@ -400,11 +400,6 @@
       };
     </script>
 
-    <script>
-      const b2bSignupLink = document.querySelector(".b2b-signup-link");
-      b2bSignupLink.addEventListener("click",()=>{window.location.href="https://zwankee.com/pages/global-register"})
-    </script>
-
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
