@@ -15,8 +15,15 @@
 {%- endstyle -%}
 <script defer>
   const currentType = localStorage.getItem("currentType");
+  const bbLogin = document.getElementById("BB-login")
+  const ccLogin = document.getElementById("CC-login");
   if(currentType == "BB"){
-    window.location.href="https://zwankee.com/pages/global-register";
+    bbLogin.style.display = "block";
+    ccLogin.style.display = "none";
+  }
+  if(currentType == "CC"){
+    bbLogin.style.display = "none";
+    ccLogin.style.display = "block";
   }
 </script>
 <div class="customer-div">
@@ -187,8 +194,10 @@
           <button class="cta-act-btn">
             {{ 'Login' }}
           </button>
-
-          <a href="{{ routes.account_register_url }}" class="creat-acct">
+          <a id="CC-login" href="{{ routes.account_register_url }}" class="creat-acct">
+            Don’t have an account? <span>{{ 'customer.login_page.create_account' | t }}</span>
+          </a>
+          <a id="BB-login" href="https://zwankee.com/pages/global-register" class="creat-acct">
             Don’t have an account? <span>{{ 'customer.login_page.create_account' | t }}</span>
           </a>
         {%- endform -%}
