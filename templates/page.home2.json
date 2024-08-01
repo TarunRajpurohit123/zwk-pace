@@ -33,6 +33,7 @@
         },
         "slide_k3wRPm": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/zwankee_sale_banner.jpg",
             "image1": "shopify:\/\/shop_images\/zwankee_sale_banner_450_x_300_px.jpg",
