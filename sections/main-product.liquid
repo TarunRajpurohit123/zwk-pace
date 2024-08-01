@@ -123,29 +123,12 @@
 
                 <!-- bulk quality selector start -->
                 <div class="variant-bulk-selector bulk-quantity-selector" id="bulk-quantity-selector">
-                  <table>
-                    <tbody>
-
-                      <tr>
-                        <td></td>
-                        {% for variant in product.variants %}
-                          <td class="variant-checkbox-td">
-                            <input type="checkbox" id="{{ variant.id }}">
-                          </td>
-                        {% endfor %}
-                      </tr>
-
-                      <tr>
-                        <td>Select Size</td>
-                        {% for variant in product.variants %}
-                          <td class="variant">
-                            <label for="variant-{{ variant.id }}">{{ variant.title }}</label>
-                          </td>
-                        {% endfor %}
-                      </tr>
-
-                    </tbody>
-                  </table>
+                  {% for variant in product.variants %}
+                    <div class="variant-row-single">
+                      <input type="checkbox" name="{{ variant.id }}" id="{{ variant.id }}">
+                      <label for="variant-{{ variant.id }}">{{ variant.title }}</label>
+                    </div>
+                  {% endfor %}
                 </div>
                 <!-- bulk quality selector end -->
 
