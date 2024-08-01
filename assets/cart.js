@@ -138,6 +138,7 @@ class CartItems extends HTMLElement {
         const checkoutButton = document.getElementById("checkout");
         console.log("varSatte", parsedState.total_price);
         if (checkoutButton) {
+          console.log("values", localStorage.getItem("currentType"));
           if (parsedState.total_price < 1000000) {
             checkoutButton.disabled = true;
           }
