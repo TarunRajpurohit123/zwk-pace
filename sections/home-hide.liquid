@@ -1,7 +1,7 @@
 
-
+<div>{{ customer.tags | first }}</div>
 {% if customer.tags | first == 'BTBUSER' %}
 <script>
       window.alert("hello");
 </script>
-{% endif customer.tags | first %}
+{% endif %}
