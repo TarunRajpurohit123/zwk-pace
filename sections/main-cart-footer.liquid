@@ -65,7 +65,8 @@
 
               <div class="totals">
                 <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
-              <p>test-{% if cart.total_price!=1000000 %}asa{% endif %}</p>
+                <p>test-{% if cart.total_price != 629900 %}asa{% endif %}
+                </p>
                 <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
               </div>
 
@@ -113,7 +114,8 @@
           {%- endcase -%}
         {% endfor %}
 
-        <div id="cart-errors"></div>
+        <div
+          id="cart-errors"></div>
       </div>
     </div>
   </div>
@@ -132,6 +134,7 @@
     if (! isIE()) 
       return;
     
+
     const cartSubmitInput = document.createElement('input');
     cartSubmitInput.setAttribute('name', 'checkout');
     cartSubmitInput.setAttribute('type', 'hidden');
