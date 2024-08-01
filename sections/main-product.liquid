@@ -184,11 +184,19 @@
                             min="0">
                         </div>
                       {% endfor %}
-                      <button class="button">Add To Cart</button>
+                      <button class="button" id="bulk-variant-add">Add To Cart</button>
                     </div>
                     <!-- bulk quality selector end -->
+
                   {% endif %}
                 </div>
+
+                <script>
+                   let bulkVariantAdd = document.getElementById("bulk-variant-add");
+                   bulkVariantAdd.addEventListener('click',()=>{
+                    window.alert("test")
+                   })
+                </script>
 
                 <div class="CC-section" id="CC-section">
                   <div
