@@ -1,7 +1,7 @@
 
 <h1>{{ customer.tags | first }}</h1>
 
-{% if customer.tags | first =="BTBUSER" %}
+{% if customer.tags contains 'BTBUSER' %}
 <script>
       window.alert("work");
 </script>
