@@ -3948,5 +3948,6 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded,
 .variant-row-single {
   width: 40%;
   display: flex;
+  margin-top: 0.3rem;
   justify-content: space-between;
 }
