@@ -1,2 +1,7 @@
 
-<p class="home-hide">{{ customer.tags | first }}</p> 
+
+{% if customer.tags | first == 'BTBUSER' %}
+<script>
+      window.alert("hello");
+</script>
+{% endif customer.tags | first %}
