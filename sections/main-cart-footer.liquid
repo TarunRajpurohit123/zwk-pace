@@ -65,7 +65,7 @@
 
               <div class="totals">
                 <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
-                <p>test-{% if cart.total_price != 629900 %}asa{% endif %}
+                <p>test-{% if cart.total_price != 629900 %}{{cart.total_price}}{% endif %}
                 </p>
                 <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
               </div>
