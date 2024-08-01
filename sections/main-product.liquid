@@ -232,12 +232,10 @@
                       },
                       body: JSON.stringify(formData)
                     }).then(response => {
-                      window
-                        .alert("test")
                         document
                         .getElementById("cart-notification")
                         .classList
-                        .add("animate active");
+                        .add("active");
                       return response.json();
                     }).catch((error) => {
                       console.error('Error:', error);
