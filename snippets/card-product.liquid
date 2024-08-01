@@ -226,6 +226,10 @@ Usage:
             {% endif %}
           {% endunless %}
         </div>
+        <script>
+          const cardAnchorSignup = document.getElementById("card-anchor-signup");
+          cardAnchorSignup.addEventListener("click",(e)=>{e.stopPropagation()})
+        </script>
         {%- if show_quick_add -%}
           <div class="quick-add no-js-hidden">
             {%- liquid
