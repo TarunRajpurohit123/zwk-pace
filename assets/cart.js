@@ -138,13 +138,16 @@ class CartItems extends HTMLElement {
         const checkoutButton = document.getElementById("checkout");
         console.log("varSatte", parsedState.total_price);
         if (checkoutButton) {
-          console.log("values", localStorage.getItem("currentType"));
-          if (parsedState.total_price < 1000000) {
-            checkoutButton.disabled = true;
+          let currentType = localStorage.getItem("currentType");
+          if(currentType=="BB"){
+            if (parsedState.total_price < 1000000) {
+              checkoutButton.disabled = true;
+            }
+            if (parsedState.total_price > 1000000) {
+              checkoutButton.disabled = false;
+            }
           }
-          if (parsedState.total_price > 1000000) {
-            checkoutButton.disabled = false;
-          }
+         
         }
         const quantityElement =
           document.getElementById(`Quantity-${line}`) ||
